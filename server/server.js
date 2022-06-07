@@ -1,5 +1,7 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
+// Import typeDefs and Resolvers from Schema Folder
+const { typeDefs, resolvers } = require("./Schemas");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
