@@ -4,14 +4,18 @@ const resolvers = {
   // Mutations will add or update any kind of data in our db
   Mutation: {
     // Creating a User
+    // Destructure the passed in variables to username and password
     signUp: async (parent, { username, password }, context) => {
       try {
-        const user = await User({
+        // await the promise and User.create saves the user to our database
+        const user = await User.create({
           username,
           password,
         });
+
         return user;
       } catch (error) {
+        // If it doesn't work, Console.log the error
         console.log(error);
         return null;
       }
