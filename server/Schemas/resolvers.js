@@ -12,8 +12,9 @@ const resolvers = {
           username,
           password,
         });
+        const token = signToken(user);
 
-        return user;
+        return { token, user };
       } catch (error) {
         // If it doesn't work, Console.log the error
         console.log(error);
