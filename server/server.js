@@ -1,6 +1,7 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
+const { authMiddleware } = require("./utils/auth");
 
 const db = require("./config/connection");
 // Import typeDefs and Resolvers from Schema Folder
@@ -11,6 +12,7 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: authMiddleware,
 });
 
 // Allows us to access the body of requests
