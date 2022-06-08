@@ -1,9 +1,20 @@
-const resolvers = {
-  Mutation: {
-    signUp: (parent, variables, context) => {
-      console.log(variables);
+const User = require("../models/User");
 
-      return null;
+const resolvers = {
+  // Mutations will add or update any kind of data in our db
+  Mutation: {
+    // Creating a User
+    signUp: async (parent, { username, password }, context) => {
+      try {
+        const user = await User({
+          username,
+          password,
+        });
+        return user;
+      } catch (error) {
+        console.log(error);
+        return null;
+      }
     },
   },
 };
