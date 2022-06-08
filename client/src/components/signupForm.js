@@ -42,15 +42,15 @@ const SignupForm = () => {
       <h2>Sign Up</h2>
       <form>
         <input
-          value={userFormData.username}
           name="username"
+          value={userFormData.username}
           onChange={handleInputChange}
           type="text"
           placeholder="username"
         />
         <input
-          value={userFormData.password}
           name="password"
+          value={userFormData.password}
           onChange={handleInputChange}
           type="password"
           placeholder="password"
