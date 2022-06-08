@@ -6,6 +6,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import SignupForm from "./components/signupForm";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -32,6 +33,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <h1> Welcome To The unnamed project homepage</h1>
+      <SignupForm />
     </ApolloProvider>
   );
 }
