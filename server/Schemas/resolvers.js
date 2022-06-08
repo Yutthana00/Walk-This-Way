@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   // Mutations will add or update any kind of data in our db
