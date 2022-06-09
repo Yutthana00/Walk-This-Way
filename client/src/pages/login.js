@@ -4,20 +4,46 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import auth from "../utils/auth";
 
-const LoginForm = ({ Login, error }) => {
+const LoginForm = () => {
   // initial useState.
-  const [userDetails, setDetails] = useState({
-    name: "",
+  const [userFormData, setUserFormData] = useState({
+    username: "",
     password: "",
   });
 
-  //   const [loginUser, { error }] = useMutation(LOGIN_USER);
+  const [loginUser, { error }] = useMutation(LOGIN_USER);
+
+  if (error) console.log(error);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await loginUser({
+        variables: { ...userFormData },
+      });
+
+      auth.login(data.loginUser.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setUserFormData({
+      username: "",
+      password: "",
+    });
+  };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form>
       <div className="form-inner">
         <h2>Login</h2>
-        {error != "" ? <div className="error">{error}</div> : ""}
+        {error !== "" ? <div className="error">{error}</div> : ""}
         {/* UserName input */}
         <div className="form-group">
           <label htmlFor="name">UserName</label>
@@ -25,10 +51,8 @@ const LoginForm = ({ Login, error }) => {
             type="text"
             name="name"
             id="name"
-            onChange={(e) =>
-              setDetails({ ...userDetails, name: e.target.value })
-            }
-            value={userDetails.name}
+            onChange={handleInputChange}
+            value={userFormData.username}
           />
         </div>
 
@@ -39,14 +63,15 @@ const LoginForm = ({ Login, error }) => {
             type="password"
             name="password"
             id="password"
-            onChange={(e) =>
-              setDetails({ ...userDetails, password: e.target.value })
-            }
-            value={userDetails.password}
+            onChange={handleInputChange}
+            value={userFormData.password}
           />
         </div>
         {/* login button */}
-        <input type="submit" value="LOGIN" />
+        <button type="submit" value="LOGIN" onClick={handleFormSubmit}>
+          {" "}
+          Login{" "}
+        </button>
       </div>
     </form>
   );
@@ -54,8 +79,8 @@ const LoginForm = ({ Login, error }) => {
 
 export default LoginForm;
 // prevent page refresh
-const submitHandler = (e) => {
-  e.preventDefault();
+// const submitHandler = (e) => {
+//   e.preventDefault();
 
-  Login(userDetails);
-};
+//   loginUser(userFormData);
+// };

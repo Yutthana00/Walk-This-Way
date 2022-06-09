@@ -22,6 +22,12 @@ const resolvers = {
         return null;
       }
     },
+    loginUser: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
+      const correctPw = await user.isCorrectPassword(password);
+      const token = signToken(user);
+      return { token, user };
+    },
   },
 };
 
