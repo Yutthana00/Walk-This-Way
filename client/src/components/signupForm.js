@@ -7,6 +7,7 @@ const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
+    email: "",
     password: "",
   });
 
@@ -33,6 +34,7 @@ const SignupForm = () => {
     //clear form once submitted
     setUserFormData({
       username: "",
+      email: "",
       password: "",
     });
   };
