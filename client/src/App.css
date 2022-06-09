@@ -1,6 +1,19 @@
-.App {
-  text-align: center;
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: montserrat, sans-serif;
 }
+
+.App {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(230, 230, 230);
+  } */
+
+/* 
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +48,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

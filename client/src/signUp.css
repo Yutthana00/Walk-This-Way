@@ -1,0 +1,131 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: montserrat, sans-serif;
+  } */
+  
+  input,
+  button {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  
+  /* .App {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(230, 230, 230);
+  } */
+  
+  form {
+    display: block;
+    position: relative;
+  }
+  /* background border */
+  form:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: 1;
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(131, 251, 255),
+      rgb(184, 248, 80)
+    );
+  }
+  
+  form .form-inner {
+    position: relative;
+    display: block;
+    background-color: aliceblue;
+    padding: 30px;
+    z-index: 2;
+  }
+  
+  form .form-inner h2 {
+    color: #888;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+  /* font styling */
+  form .form-inner .form-group {
+    display: block;
+    color: #666;
+    width: 300px;
+    margin-bottom: 15px;
+  }
+  
+  .form-inner .form-group label {
+    display: block;
+    color: #666;
+    font-size: 20px;
+    margin-bottom: 5px;
+    transition: 0.4s;
+  }
+  
+  .form-inner .form-group:focus-within label {
+    color: rgb(117, 202, 67);
+  }
+  
+  form .form-inner .form-group input {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: aliceblue;
+    border-radius: 8px;
+    transition: 0.4s;
+  }
+  
+  form .form-inner .form-group input:focus {
+    box-shadow: 0px 0px 3px rgba(90, 240, 165);
+  }
+  
+  form .form-inner .form-btn,
+  .welcome button {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(131, 251, 255),
+      rgb(184, 248, 80)
+    );
+    transition: 0.4s;
+    background-size: 200%;
+    background-position: 0%;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  form .form-inner .form-btn:hover,
+  .welcome button:hover {
+    background-position: 100% 0%;
+  }
+  
+  .welcome {
+    width: 100%;
+    max-width: 480%;
+    background-color: #fff;
+    padding: 15px 30px;
+  } 
+  
+  .welcome h2 {
+    color: #888;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+  
+  .welcome h2 span {
+    color: rgb(248, 208, 77);
+  }
+  
