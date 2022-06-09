@@ -7,8 +7,10 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import SignupForm from "./pages/signup";
-import Home from "./components/home";
+import Home from "./pages/home";
 import auth from "./utils/auth";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -35,9 +37,10 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <h1> Welcome To The unnamed project homepage</h1>
+      <Header />
       {auth.loggedIn() ? <Home /> : <SignupForm />}
       {/* <SignupForm /> */}
+      <Footer />
     </ApolloProvider>
   );
 }
