@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../utils/mutations";
-import Auth from "../utils/auth";
+import auth from "../utils/auth";
 
 const SignupForm = () => {
   // set initial form state
@@ -26,7 +26,7 @@ const SignupForm = () => {
       const { data } = await signUp({
         variables: { ...userFormData },
       });
-      Auth.login(data.signUp.token);
+      auth.login(data.signUp.token);
     } catch (err) {
       console.error(err);
     }

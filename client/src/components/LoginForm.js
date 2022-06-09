@@ -1,70 +1,70 @@
-import React, { useState } from 'react';
-import { useMutation } from "@apollo/client";
+// import React, { useState } from 'react';
+// import { useMutation } from "@apollo/client";
 
-import { LOGIN_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
+// import { LOGIN_USER } from "../utils/mutations";
+// import Auth from "../utils/auth";
 
-const LoginForm = ({ Login, error }) => {
-  // initial useState.
-  const [userDetails, setDetails] = useState({ name: '', email: '', password: '' });
-  
-//   const [loginUser, { error }] = useMutation(LOGIN_USER);
+// const LoginForm = ({ Login, error }) => {
+//   // initial useState.
+//   const [userDetails, setDetails] = useState({ name: '', email: '', password: '' });
 
-  return (
-    <form onSubmit={submitHandler}>
-      <div className="form-inner">
-        <h2>Login</h2>
-        {error != '' ? <div className="error">{error}</div> : ''}
+// //   const [loginUser, { error }] = useMutation(LOGIN_USER);
 
-    //  UserName input
-        <div className="form-group">
-          <label htmlFor="name">UserName</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            onChange={(e) => setDetails({ ...userDetails, name: e.target.value })}
-            value={userDetails.name}
-          />
-        </div>
+//   return (
+//     <form onSubmit={submitHandler}>
+//       <div className="form-inner">
+//         <h2>Login</h2>
+//         {error != '' ? <div className="error">{error}</div> : ''}
 
-        // email input
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            onChange={(e) => setDetails({ ...userDetails, email: e.target.value })}
-            value={userDetails.email}
-          />
-        </div>
+//     //  UserName input
+//         <div className="form-group">
+//           <label htmlFor="name">UserName</label>
+//           <input
+//             type="text"
+//             name="name"
+//             id="name"
+//             onChange={(e) => setDetails({ ...userDetails, name: e.target.value })}
+//             value={userDetails.name}
+//           />
+//         </div>
 
-        // password input
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={(e) =>
-              setDetails({ ...userDetails, password: e.target.value })
-            }
-            value={userDetails.password}
-          />
-        </div>
+//         // email input
+//         <div className="form-group">
+//           <label htmlFor="email">Email</label>
+//           <input
+//             type="email"
+//             name="email"
+//             id="email"
+//             onChange={(e) => setDetails({ ...userDetails, email: e.target.value })}
+//             value={userDetails.email}
+//           />
+//         </div>
 
-        // login button
-        <input type="submit" value="LOGIN" />
-      </div>
-    </form>
-  );
-}
+//         // password input
+//         <div className="form-group">
+//           <label htmlFor="password">Password</label>
+//           <input
+//             type="password"
+//             name="password"
+//             id="password"
+//             onChange={(e) =>
+//               setDetails({ ...userDetails, password: e.target.value })
+//             }
+//             value={userDetails.password}
+//           />
+//         </div>
 
-export default LoginForm;
-// prevent page refresh
-const submitHandler = (e) => {
-    e.preventDefault();
+//         // login button
+//         <input type="submit" value="LOGIN" />
+//       </div>
+//     </form>
+//   );
+// }
 
-    Login(userDetails);
-  };
+// export default LoginForm;
+// // prevent page refresh
+// const submitHandler = (e) => {
+//     e.preventDefault();
+
+//     Login(userDetails);
+//   };
