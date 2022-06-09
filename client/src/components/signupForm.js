@@ -7,11 +7,10 @@ const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
-    email: "",
     password: "",
   });
 
-  const [signup, { error }] = useMutation(SIGNUP);
+  const [signUp, { error }] = useMutation(SIGNUP);
 
   if (error) console.log(error);
 
@@ -24,17 +23,17 @@ const SignupForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await signup({
+      const { data } = await signUp({
         variables: { ...userFormData },
       });
-      Auth.login(data.signup.token);
+      //Auth.login(data.signup.token);
     } catch (err) {
       console.error(err);
     }
+    console.log(userFormData);
     //clear form once submitted
     setUserFormData({
       username: "",
-      email: "",
       password: "",
     });
   };
