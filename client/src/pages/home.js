@@ -1,5 +1,12 @@
+import auth from "../utils/auth";
+
 const Home = () => {
-  return <h1>Welcome</h1>;
+  return (
+    <div>
+      <h1>Welcome</h1>
+      <button onClick={auth.logout}>logout</button>
+    </div>
+  );
 };
 
 export default Home;

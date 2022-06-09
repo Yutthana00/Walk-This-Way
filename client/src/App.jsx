@@ -11,6 +11,7 @@ import Home from "./pages/home";
 import auth from "./utils/auth";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import LoginForm from "./pages/login";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -38,7 +39,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Header />
-      {auth.loggedIn() ? <Home /> : <SignupForm />}
+      {auth.loggedIn() ? (
+        <Home />
+      ) : (
+        <div>
+          <SignupForm />
+          <LoginForm />
+        </div>
+      )}
       {/* <SignupForm /> */}
       <Footer />
     </ApolloProvider>
