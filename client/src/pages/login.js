@@ -8,7 +8,6 @@ const LoginForm = ({ Login, error }) => {
   // initial useState.
   const [userDetails, setDetails] = useState({
     name: "",
-    email: "",
     password: "",
   });
 
@@ -19,7 +18,7 @@ const LoginForm = ({ Login, error }) => {
       <div className="form-inner">
         <h2>Login</h2>
         {error != "" ? <div className="error">{error}</div> : ""}
-        // UserName input
+        {/* UserName input */}
         <div className="form-group">
           <label htmlFor="name">UserName</label>
           <input
@@ -32,20 +31,8 @@ const LoginForm = ({ Login, error }) => {
             value={userDetails.name}
           />
         </div>
-        // email input
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            onChange={(e) =>
-              setDetails({ ...userDetails, email: e.target.value })
-            }
-            value={userDetails.email}
-          />
-        </div>
-        // password input
+
+        {/* password input */}
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
@@ -58,7 +45,7 @@ const LoginForm = ({ Login, error }) => {
             value={userDetails.password}
           />
         </div>
-        // login button
+        {/* login button */}
         <input type="submit" value="LOGIN" />
       </div>
     </form>
