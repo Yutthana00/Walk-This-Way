@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../utils/mutations";
 import auth from "../utils/auth";
+import "../signUp.css";
+
 
 const SignupForm = () => {
   // set initial form state
@@ -39,28 +41,37 @@ const SignupForm = () => {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form>
-        <input
-          name="username"
-          value={userFormData.username}
-          onChange={handleInputChange}
-          type="text"
-          placeholder="username"
-        />
-        <input
-          name="password"
-          value={userFormData.password}
-          onChange={handleInputChange}
-          type="password"
-          placeholder="password"
-        />
-      </form>
-      <button id="form-btn" onClick={handleFormSubmit}>
-        Sign Up!
-      </button>
+<form>
+  <div className="form-inner">
+    <h2>Sign Up</h2>
+
+    <div className="form-group">
+    <label htmlFor="name">UserName</label>
+      <input
+      name="username"
+      value={userFormData.username}
+      onChange={handleInputChange}
+      type="text"
+      placeholder=""
+      />
     </div>
+
+    <div className="form-group">
+    <label htmlFor="name">password</label>
+      <input
+      name="password"
+      value={userFormData.password}
+      onChange={handleInputChange}
+      type="password"
+      placeholder=""
+      />
+    </div>
+
+    <button className="form-btn" onClick={handleFormSubmit}>
+    Sign Up!
+    </button>
+  </div>
+</form>
   );
 };
 
