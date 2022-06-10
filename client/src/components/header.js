@@ -1,5 +1,15 @@
+import React from "react";
+import "../header.css"
+
 const Header = () => {
-  return <h1>Welcome to project 3</h1>;
+  return(
+    <div className="navBar">
+    <a href="/home">Posts</a>
+    <a href="/about">About Us</a>
+    <a href="/dashboard">Account</a>
+    </div>
+    
+  ); 
 };
 
 export default Header;
