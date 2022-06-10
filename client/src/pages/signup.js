@@ -57,7 +57,7 @@ const SignupForm = () => {
     </div>
 
     <div className="form-group">
-    <label htmlFor="name">password</label>
+    <label htmlFor="name">Password</label>
       <input
       name="password"
       value={userFormData.password}
@@ -70,7 +70,7 @@ const SignupForm = () => {
     <button className="form-btn" onClick={handleFormSubmit}>
     Sign Up!
     </button>
-  </div>
+    </div>
 </form>
   );
 };
