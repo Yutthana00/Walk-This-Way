@@ -69,7 +69,7 @@ const PostForm = () => {
           <div className="form-group">
             <label htmlFor="name">Route</label>
             <input
-              name="route"
+              name="website"
               value={userFormData.website}
               onChange={handleInputChange}
               type="text"
