@@ -1,12 +1,13 @@
-* {
-  background-color: rgb(229, 229, 229);
+body {
+  background-image: url("./components/image/beach.jpg");
+  background-size: cover;
 }
+
 .App1 {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(230, 230, 230);
 }
 
   input,
