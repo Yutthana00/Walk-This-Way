@@ -42,16 +42,16 @@ function App() {
   return (
   <div className="App1">
     <ApolloProvider client={client}>
-      <Header />
+      {/* <Header /> */}
       {auth.loggedIn() ? (
         <Home />
         ) : (
           <div>
-          {/* <SignupForm /> */}
-          <LoginForm />
+          <SignupForm />
+          {/* <LoginForm /> */}
         </div>
       )}
-      <Footer />
+      {/* <Footer /> */}
       
     </ApolloProvider>
   </div>  
