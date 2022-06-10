@@ -73,29 +73,36 @@ const LoginForm = () => {
     //   </button>
     //   {/* </div> */}
     // </form>
-    <div>
-      <h2>Login</h2>
-      <form>
-        <input
+    <form>
+      <div className="form-inner">
+        <h2>Login</h2>
+
+        <div className="form-group">
+        <label htmlFor="name">UserName</label>
+          <input
           name="username"
           value={userFormData.username}
           onChange={handleInputChange}
           type="text"
-          placeholder="username"
-        />
-        <input
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="name">Password</label>
+          <input
           name="password"
           value={userFormData.password}
           onChange={handleInputChange}
           type="password"
-          placeholder="password"
-        />
-      </form>
-      <button id="form-btn" onClick={handleFormSubmit}>
+          />
+        </div>
+
+        <button className="form-btn" onClick={handleFormSubmit}>
         Login!
-      </button>
-    </div>
-  );
+        </button>
+      </div>
+    </form>
+    );
 };
 
 export default LoginForm;
