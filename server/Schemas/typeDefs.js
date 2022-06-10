@@ -19,7 +19,6 @@ const typeDefs = gql`
   }
 
   input PostInput {
-    postId: String
     image: String
     location: String
     website: String
@@ -39,7 +38,7 @@ const typeDefs = gql`
   type Mutation {
     signUp(username: String!, password: String!): Auth
     loginUser(username: String!, password: String!): Auth
-    createPost(postData: PostInput!): User
+    createPost(postData: PostInput!): Post
   }
 `;
 

@@ -35,9 +35,12 @@ const resolvers = {
     // Add a post to database
     createPost: async (
       parent,
-      { image, location, website, distance, description }
+      args
+      // { image, location, website, distance, description }
     ) => {
       try {
+        const { image, location, website, distance, description } =
+          args.postData;
         const post = await Post.create({
           image,
           location,
