@@ -25,7 +25,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const CREATE_POST = gql`
-  mutation createPost($postData: PostInput) {
+  mutation createPost($postData: PostInput!) {
     createPost(postData: $postData) {
       _id
       username
@@ -36,7 +36,6 @@ export const CREATE_POST = gql`
         website
         distance
         description
-        author
       }
     }
   }
