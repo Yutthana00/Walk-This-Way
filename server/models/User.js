@@ -1,17 +1,39 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const UserSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+const UserSchema = new Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
 
-  password: {
-    type: String,
-    required: true,
+    password: {
+      type: String,
+      required: true,
+    },
+    postCount: {
+      type: Int,
+    },
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
   },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false,
+  }
+);
+
+// Post count virtual
+UserSchema.virtual("postCount").get(function () {
+  return this.posts.length;
 });
 
 // hash user password
