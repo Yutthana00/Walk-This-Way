@@ -13,9 +13,9 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    postCount: {
-      type: Int,
-    },
+    // postCount: {
+    //   type: Integer,
+    // },
     posts: [
       {
         type: Schema.Types.ObjectId,

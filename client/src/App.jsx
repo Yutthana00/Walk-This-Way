@@ -9,8 +9,8 @@ import { setContext } from "@apollo/client/link/context";
 import SignupForm from "./pages/signup";
 import Home from "./pages/home";
 import auth from "./utils/auth";
-import Header from "./components/header";
-import Footer from "./components/footer";
+//import Header from "./components/header";
+//import Footer from "./components/footer";
 import LoginForm from "./pages/login";
 import "./signUp.css";
 
@@ -40,21 +40,20 @@ const client = new ApolloClient({
 
 function App() {
   return (
-  <div className="App1">
-    <ApolloProvider client={client}>
-      {/* <Header /> */}
-      {auth.loggedIn() ? (
-        <Home />
+    <div className="App1">
+      <ApolloProvider client={client}>
+        {/* <Header /> */}
+        {auth.loggedIn() ? (
+          <Home />
         ) : (
           <div>
-          <SignupForm />
-          {/* <LoginForm /> */}
-        </div>
-      )}
-      {/* <Footer /> */}
-      
-    </ApolloProvider>
-  </div>  
+            <SignupForm />
+            <LoginForm />
+          </div>
+        )}
+        {/* <Footer /> */}
+      </ApolloProvider>
+    </div>
   );
 }
 

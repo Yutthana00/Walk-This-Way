@@ -22,7 +22,7 @@ const PostSchema = new Schema({
   },
 
   distance: {
-    type: Int,
+    type: Number,
   },
 
   description: {

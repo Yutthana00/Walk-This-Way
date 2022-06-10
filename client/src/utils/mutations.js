@@ -23,3 +23,21 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const CREATE_POST = gql`
+  mutation createPost($postData: PostInput) {
+    createPost(postData: $postData) {
+      _id
+      username
+      posts {
+        postId
+        image
+        location
+        website
+        distance
+        description
+        author
+      }
+    }
+  }
+`;

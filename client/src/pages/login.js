@@ -41,72 +41,37 @@ const LoginForm = () => {
     });
   };
 
- 
-
   return (
-    // <form>
-    //   {/* <div className="form-inner"> */}
-    //   <h2>Login</h2>
-    //   {error !== "" ? <div className="error">{error}</div> : ""}
-    //   {/* UserName input */}
-    //   <div className="form-group">
-    //     <label htmlFor="name">UserName</label>
-    //     <input
-    //       type="text"
-    //       name="username"
-    //       id="name"
-    //       value={userFormData.username}
-    //       onChange={handleInputChange}
-    //     />
-    //   </div>
-
-    //   {/* password input */}
-    //   <div className="form-group">
-    //     <label htmlFor="password">Password</label>
-    //     <input
-    //       type="password"
-    //       name="password"
-    //       id="password"
-    //       value={userFormData.password}
-    //       onChange={handleInputChange}
-    //     />
-    //   </div>
-    //   {/* login button */}
-    //   <button type="submit" value="LOGIN" onClick={handleFormSubmit}>
-    //     Login
-    //   </button>
-    //   {/* </div> */}
-    // </form>
     <form>
-        <div className="form-inner">
-          <h2>Login</h2>
+      <div className="form-inner">
+        <h2>Login</h2>
 
-          <div className="form-group">
+        <div className="form-group">
           <label htmlFor="name">UserName</label>
-            <input
+          <input
             name="username"
             value={userFormData.username}
             onChange={handleInputChange}
             type="text"
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="name">Password</label>
-            <input
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="name">Password</label>
+          <input
             name="password"
             value={userFormData.password}
             onChange={handleInputChange}
             type="password"
-            />
-          </div>
-
-          <button className="form-btn" onClick={handleFormSubmit}>
-          Login!
-          </button>
+          />
         </div>
-      </form>
-    );
+
+        <button className="form-btn" onClick={handleFormSubmit}>
+          Login!
+        </button>
+      </div>
+    </form>
+  );
 };
 
 export default LoginForm;
