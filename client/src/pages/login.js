@@ -4,6 +4,8 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import auth from "../utils/auth";
 
+import "../components/image/beach.jpg";
+
 const LoginForm = () => {
   // initial useState.
   const [userFormData, setUserFormData] = useState({
@@ -38,6 +40,8 @@ const LoginForm = () => {
       password: "",
     });
   };
+
+ 
 
   return (
     // <form>
@@ -74,34 +78,34 @@ const LoginForm = () => {
     //   {/* </div> */}
     // </form>
     <form>
-      <div className="form-inner">
-        <h2>Login</h2>
+        <div className="form-inner">
+          <h2>Login</h2>
 
-        <div className="form-group">
-        <label htmlFor="name">UserName</label>
-          <input
-          name="username"
-          value={userFormData.username}
-          onChange={handleInputChange}
-          type="text"
-          />
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="name">Password</label>
-          <input
-          name="password"
-          value={userFormData.password}
-          onChange={handleInputChange}
-          type="password"
-          />
-        </div>
+          <div className="form-group">
+          <label htmlFor="name">UserName</label>
+            <input
+            name="username"
+            value={userFormData.username}
+            onChange={handleInputChange}
+            type="text"
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="name">Password</label>
+            <input
+            name="password"
+            value={userFormData.password}
+            onChange={handleInputChange}
+            type="password"
+            />
+          </div>
 
-        <button className="form-btn" onClick={handleFormSubmit}>
-        Login!
-        </button>
-      </div>
-    </form>
+          <button className="form-btn" onClick={handleFormSubmit}>
+          Login!
+          </button>
+        </div>
+      </form>
     );
 };
 
