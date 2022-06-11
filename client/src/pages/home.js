@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PostForm from "../components/createPost";
+import GetPosts from "../components/getPosts";
 import { useAuthContext } from "../utils/AuthProvider";
 
 const Home = () => {
@@ -19,7 +20,9 @@ const Home = () => {
     <div>
       <h1>Welcome</h1>
 
-      <PostForm />
+      {/* <PostForm /> */}
+      <GetPosts />
+
       <button onClick={auth.logout}>logout</button>
     </div>
   );

@@ -3,6 +3,11 @@ const Post = require("../models/Post");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
+  Query: {
+    posts: async () => {
+      return Post.find();
+    },
+  },
   // Mutations will add or update any kind of data in our db
   Mutation: {
     // Creating a User
