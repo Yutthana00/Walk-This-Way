@@ -16,15 +16,15 @@ const GetPosts = () => {
       ) : (
         <div>
           {posts &&
-            posts.map((post) => {
-              <div>
+            posts.map((post) => (
+              <div key={post.postId}>
                 <div>{post.location}</div>
                 <div>{post.image}</div>
                 <div>{post.distance}</div>
                 <div>{post.description}</div>
                 <div>{post.website}</div>
-              </div>;
-            })}
+              </div>
+            ))}
         </div>
       )}
     </div>
