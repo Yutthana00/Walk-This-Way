@@ -1,3 +1,4 @@
+// Imported Dependencies
 import React from "react";
 import {
   ApolloClient,
@@ -5,16 +6,13 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
-import SignupForm from "./pages/signup";
-import Home from "./pages/home";
-import auth from "./utils/auth";
-//import Header from "./components/header";
-//import Footer from "./components/footer";
-import LoginForm from "./pages/login";
-import "./signUp.css";
 
-// import LoginForm from "./pages/login";
+// Imported Pages, Components or CSS
+import Home from "./pages/home";
+
+import "./signUp.css";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,16 +40,15 @@ function App() {
   return (
     <div className="App1">
       <ApolloProvider client={client}>
-        {/* <Header /> */}
-        {auth.loggedIn() ? (
-          <Home />
-        ) : (
-          <div>
-            <SignupForm />
-            <LoginForm />
-          </div>
-        )}
-        {/* <Footer /> */}
+        {/*Wrap all page elemets in Router Component to keep track of location state*/}
+        <Router>
+          {/* <Header /> */}
+          {/* Routes Component can only have Route Components within it!! */}
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+          </Routes>
+          {/* <Footer /> */}
+        </Router>
       </ApolloProvider>
     </div>
   );
