@@ -20,7 +20,7 @@ const Home = () => {
     <div>
       <h1>Welcome</h1>
 
-      {/* <PostForm /> */}
+      <PostForm />
       <GetPosts />
 
       <button onClick={auth.logout}>logout</button>
