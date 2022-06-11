@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../utils/mutations";
+import { useAuthContext } from "../utils/AuthProvider";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../utils/AuthService";
 import "../signUp.css";
 
 const SignupForm = () => {
+  const auth = useAuthContext();
+  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: "",
@@ -30,6 +33,7 @@ const SignupForm = () => {
         variables: { ...userFormData },
       });
       auth.login(data.signUp.token);
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
