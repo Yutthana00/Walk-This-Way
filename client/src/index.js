@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import './signUp.css'
 import App from "./App";
+
+import "./signUp.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
