@@ -11,8 +11,10 @@ import { setContext } from "@apollo/client/link/context";
 
 // Imported Pages, Components or CSS
 import Home from "./pages/home";
+import AuthProvider from "./utils/AuthProvider";
 
 import "./signUp.css";
+import LoginForm from "./pages/login";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -38,19 +40,22 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <div className="App1">
-      <ApolloProvider client={client}>
+    // <div className="App1">
+    <ApolloProvider client={client}>
+      <AuthProvider>
         {/*Wrap all page elemets in Router Component to keep track of location state*/}
         <Router>
           {/* <Header /> */}
           {/* Routes Component can only have Route Components within it!! */}
           <Routes>
             <Route path="/" element={<Home />}></Route>
+            <Route path="/login" element={<LoginForm />}></Route>
           </Routes>
           {/* <Footer /> */}
         </Router>
-      </ApolloProvider>
-    </div>
+      </AuthProvider>
+    </ApolloProvider>
+    // </div>
   );
 }
 

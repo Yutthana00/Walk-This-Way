@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../utils/mutations";
-import auth from "../utils/auth";
+import auth from "../utils/AuthService";
 import "../signUp.css";
-
 
 const SignupForm = () => {
   // set initial form state
@@ -41,37 +40,37 @@ const SignupForm = () => {
   };
 
   return (
-<form>
-  <div className="form-inner">
-    <h2>Sign Up</h2>
+    <form>
+      <div className="form-inner">
+        <h2>Sign Up</h2>
 
-    <div className="form-group">
-    <label htmlFor="name">UserName</label>
-      <input
-      name="username"
-      value={userFormData.username}
-      onChange={handleInputChange}
-      type="text"
-      placeholder=""
-      />
-    </div>
+        <div className="form-group">
+          <label htmlFor="name">UserName</label>
+          <input
+            name="username"
+            value={userFormData.username}
+            onChange={handleInputChange}
+            type="text"
+            placeholder=""
+          />
+        </div>
 
-    <div className="form-group">
-    <label htmlFor="name">Password</label>
-      <input
-      name="password"
-      value={userFormData.password}
-      onChange={handleInputChange}
-      type="password"
-      placeholder=""
-      />
-    </div>
+        <div className="form-group">
+          <label htmlFor="name">Password</label>
+          <input
+            name="password"
+            value={userFormData.password}
+            onChange={handleInputChange}
+            type="password"
+            placeholder=""
+          />
+        </div>
 
-    <button className="form-btn" onClick={handleFormSubmit}>
-    Sign Up!
-    </button>
-    </div>
-</form>
+        <button className="form-btn" onClick={handleFormSubmit}>
+          Sign Up!
+        </button>
+      </div>
+    </form>
   );
 };
 
