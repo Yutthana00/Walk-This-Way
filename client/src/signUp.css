@@ -1,14 +1,14 @@
+
 body {
-  background-image: url("./components/image/beach.jpg");
-  background-size: cover;
+  background-color: rgb(23, 23, 23);
 }
 
-.App1 {
+/* .App1 {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
   input,
   button {
@@ -37,7 +37,7 @@ body {
     background-image: linear-gradient(
       to bottom right,
       rgb(131, 251, 255),
-      rgb(184, 248, 80)
+      rgb(184, 248, 80), rgb(234, 116, 13)
     );
   }
   
@@ -99,7 +99,7 @@ body {
     border-radius: 8px;
     background-image: linear-gradient(
       to bottom right,
-      rgb(131, 251, 255),
+      rgb(39, 183, 188),
       rgb(184, 248, 80)
     );
     transition: 0.4s;
