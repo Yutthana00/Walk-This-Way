@@ -1,15 +1,22 @@
 import React from "react";
-import "../header.css"
+import { AppBar, Toolbar, Typography } from "@mui/material";
+import ModeOfTravelIcon from '@mui/icons-material/ModeOfTravel';
+
 
 const Header = () => {
-  return(
-    <nav className="navBar">
-    <a href="/home">Posts</a>
-    <a href="/about">About Us</a>
-    <a href="/dashboard">Account</a>
-    </nav>
-    
-  ); 
+  return (
+    <React.Fragment>
+      <AppBar sx ={{background: "#000000"}}>
+        <Toolbar>
+          <Typography>
+            LOGO
+          </Typography>
+          
+        </Toolbar>
+      </AppBar>
+    </React.Fragment>
+  );
 };
+
 
 export default Header;
