@@ -89,4 +89,26 @@ export default function ContainerResponsive() {
                 pointerEvents: 'none',
               }}
             >
+              {/* IMG upload */}
+              <img
+                alt=""
+                src="https://images.pexels.com/photos/12366150/pexels-photo-12366150.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              />
+            </AspectRatio>
+            <Box sx={{ display: 'flex', gap: 1.5, mt: 'auto' }}>
+              
+              <div>
+                <Typography
+                  sx={{
+                    color: '#fff',
+                    '&.Mui-focusVisible:after': { outlineOffset: '-4px' },
+                  }}
+                  level="body2"
+                >
+                  Posted by
+                </Typography>
+                <Typography fontWeight="lg" level="body2">
+                  Team M
+                </Typography>
+              </div>
               
