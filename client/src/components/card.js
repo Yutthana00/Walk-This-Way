@@ -32,4 +32,26 @@ export default function ContainerResponsive() {
             '& > *': { minWidth: 'clamp(0px, (360px - 100%) * 999,100%)' },
           })}
         >
-          
+          <AspectRatio
+            variant="soft"
+            sx={{
+              flexGrow: 1,
+              display: 'contents',
+              '--AspectRatio-paddingBottom':
+                'clamp(0px, (100% - 360px) * 999, min(calc(100% / (16 / 9)), 300px))',
+            }}
+          >
+            <img
+              alt=""
+              src="https://images.pexels.com/photos/12366150/pexels-photo-12366150.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            />
+          </AspectRatio>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+              maxWidth: '200px',
+            }}
+          >
+            
