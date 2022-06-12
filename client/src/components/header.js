@@ -18,8 +18,7 @@ const Header = () => {
   );
 };
 
-export default Header;
-
+// export default Header;
 // import * as React from 'react';
 // import AppBar from '@mui/material/AppBar';
 // import Box from '@mui/material/Box';
@@ -34,7 +33,6 @@ export default Header;
 // import Tooltip from '@mui/material/Tooltip';
 // import MenuItem from '@mui/material/MenuItem';
 // import AdbIcon from '@mui/icons-material/Adb';
-
 
 // const pages = ['Home', 'Post', 'FQA', 'Login', 'Logout'];
 // const settings = ['Home', 'Post', 'FQA', 'Login', 'Logout'];
@@ -67,10 +65,10 @@ export default Header;
 //     <AppBar position="static" sx={{ background: '#000000' }}>
 //       <Container maxWidth="xl">
 //         <Toolbar disableGutters>
-//           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+//           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
 //           {/* logo text */}
 
-//           {/* <Typography
+//           <Typography
 //             variant="h6"
 //             noWrap
 //             component="a"
@@ -86,7 +84,7 @@ export default Header;
 //             }}
 //           >
 //             LOGO 
-//           </Typography> */}
+//           </Typography>
 
 //           {/* Hambermenu */}
 //           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -127,7 +125,7 @@ export default Header;
 //           </Box>
 
 //           {/* Logo IMG */}
-//           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+//           {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
 //           <Typography
 //             variant="h5"
 //             noWrap
@@ -143,7 +141,7 @@ export default Header;
 //               color: 'inherit',
 //               textDecoration: 'none',
 //             }}
-//           ></Typography>
+//           >LOGO</Typography>
 //           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 //             {pages.map((page) => (
 //               <Button
@@ -155,12 +153,18 @@ export default Header;
 //               </Button>
 //             ))}
 //           </Box>
-
-//           {/* Avatar box */}
 //           <Box sx={{ flexGrow: 0 }}>
 //             <Tooltip title="Open settings">
 //               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-//                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
+//           {/* Avatar box */}
+//                 <Avatar variant="soft" color="neutral" size="lg"
+//                 color="neutral"
+//                 sx={{ ml: 'auto', alignSelf: 'flex-start' }}>
+//                 E
+//                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
+//               </Avatar>
+
 //               </IconButton>
 //             </Tooltip>
 //             <Menu
@@ -191,5 +195,3 @@ export default Header;
 //     </AppBar>
 //   );
 // };
-
-
