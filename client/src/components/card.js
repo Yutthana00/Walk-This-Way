@@ -111,4 +111,17 @@ export default function ContainerResponsive() {
                   Team M
                 </Typography>
               </div>
-              
+              {/* Heart Button */}
+              <IconButton
+                size="sm"
+                variant="plain"
+                color="neutral"
+                sx={{ ml: 'auto', alignSelf: 'flex-start' }}
+              >
+                <FavoriteBorderRoundedIcon color="danger" />
+              </IconButton>
+            </Box>
+            
+    );
+  }
+  
