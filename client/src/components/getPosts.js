@@ -15,7 +15,7 @@ const GetPosts = () => {
         <div>Loading...</div>
       ) : (
         <div>
-          {posts &&
+          {posts?.length &&
             posts.map((post) => (
               <div key={post.postId}>
                 <div>{post.location}</div>
