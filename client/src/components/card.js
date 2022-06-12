@@ -73,4 +73,20 @@ export default function ContainerResponsive() {
                 <Typography level="body2">Alaska, USA</Typography>
               </div>
   
+              {/* Avatar */}
+              <Avatar variant="soft" color="neutral" size="lg"
+                color="neutral"
+                sx={{ ml: 'auto', alignSelf: 'flex-start' }}>
+                Y
+              </Avatar>
+  
+            </Box>
+            <AspectRatio
+              variant="soft"
+              sx={{
+                '--AspectRatio-paddingBottom':
+                  'clamp(0px, (100% - 200px) * 999, 200px)',
+                pointerEvents: 'none',
+              }}
+            >
               
