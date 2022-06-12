@@ -1,34 +1,39 @@
-import * as React from 'react';
+import React from "react";
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
-// const Header = () => {
-//   return (
-//     <React.Fragment>
-//       <AppBar sx ={{background: "#000000"}}>
-//         <Toolbar>
-//           <Typography>
-//             LOGO
-//           </Typography>
+const Header = () => {
+  return (
+    <React.Fragment>
+      <AppBar sx ={{background: "#000000"}}>
+        <Toolbar>
+          <Typography>
+            LOGO
+          </Typography>
           
-//         </Toolbar>
-//       </AppBar>
-//     </React.Fragment>
-//   );
-// };
+        </Toolbar>
+      </AppBar>
+    </React.Fragment>
+  );
+};
 
+export default Header;
 
+// import * as React from 'react';
+// import AppBar from '@mui/material/AppBar';
+// import Box from '@mui/material/Box';
+// import Toolbar from '@mui/material/Toolbar';
+// import IconButton from '@mui/material/IconButton';
+// import Typography from '@mui/material/Typography';
+// import Menu from '@mui/material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import Container from '@mui/material/Container';
+// import Avatar from '@mui/material/Avatar';
+// import Button from '@mui/material/Button';
+// import Tooltip from '@mui/material/Tooltip';
+// import MenuItem from '@mui/material/MenuItem';
+// import AdbIcon from '@mui/icons-material/Adb';
 
 
 // const pages = ['Home', 'Post', 'FQA', 'Login', 'Logout'];
@@ -187,4 +192,4 @@ import AdbIcon from '@mui/icons-material/Adb';
 //   );
 // };
 
-export default Header;
+
