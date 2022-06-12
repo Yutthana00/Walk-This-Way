@@ -17,7 +17,7 @@ const Header = () => {
     </React.Fragment>
   );
 };
-
+export default Header;
 // export default Header;
 // import * as React from 'react';
 // import AppBar from '@mui/material/AppBar';
