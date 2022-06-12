@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import PostForm from "../components/createPost";
 import GetPosts from "../components/getPosts";
 import { useAuthContext } from "../utils/AuthProvider";
+import "../signUp.css";
 
 const Home = () => {
   const auth = useAuthContext();
@@ -22,8 +23,7 @@ const Home = () => {
 
       <PostForm />
       <GetPosts />
-
-      <button onClick={auth.logout}>logout</button>
+          <button onClick={auth.logout}>logout</button>  
     </div>
   );
 };
