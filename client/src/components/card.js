@@ -54,4 +54,23 @@ export default function ContainerResponsive() {
               maxWidth: '200px',
             }}
           >
-            
+            {/* Name of Location */}
+            <Box sx={{ display: 'flex' }}>
+              <div>
+                <Typography level="h2" sx={{ fontSize: 'md' }} mb={0.5}>
+                  <Link
+                    href="#container-responsive"
+                    overlay
+                    underline="none"
+                    sx={{
+                      color: '#fff',
+                      '&.Mui-focusVisible:after': { outlineOffset: '-4px' },
+                    }}
+                  >
+                    Mount Saint Elias
+                  </Link>
+                </Typography>
+                <Typography level="body2">Alaska, USA</Typography>
+              </div>
+  
+              
