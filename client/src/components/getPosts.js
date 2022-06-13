@@ -19,6 +19,7 @@ const GetPosts = () => {
             posts.map((post) => (
               <div key={post.postId}>
                 <div>{post.location}</div>
+                <div>{post.author}</div>
                 <div>{post.image}</div>
                 <div>{post.distance}</div>
                 <div>{post.description}</div>

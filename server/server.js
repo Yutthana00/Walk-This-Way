@@ -15,6 +15,8 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
+//for use with image uploading
+app.use("/uploads", express.static("uploads"));
 // Allows us to access the body of requests
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

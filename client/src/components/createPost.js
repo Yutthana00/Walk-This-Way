@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutations";
+import { useAuthContext } from "../utils/AuthProvider";
 //import auth from "../utils/auth";
 const INITIAL_FORM_STATE = {
   image: "",
   location: "",
+  author: "",
   website: "",
   distance: 0,
   description: "",
 };
 
 const PostForm = () => {
+  const auth = useAuthContext();
   const [userFormData, setUserFormData] = useState(INITIAL_FORM_STATE);
   const [error, setError] = useState("");
 
@@ -33,7 +36,11 @@ const PostForm = () => {
         return;
       }
 
-      const dataToSubmit = { ...userFormData, distance: parsedDistance };
+      const dataToSubmit = {
+        ...userFormData,
+        author: auth.loggedIn.username,
+        distance: parsedDistance,
+      };
 
       setError("");
 
