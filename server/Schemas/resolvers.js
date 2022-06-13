@@ -44,7 +44,7 @@ const resolvers = {
       // { image, location, website, distance, description }
     ) => {
       try {
-        const { image, location, website, distance, description } =
+        const { image, location, website, distance, description, author } =
           args.postData;
         const post = await Post.create({
           image,
@@ -52,6 +52,7 @@ const resolvers = {
           website,
           distance,
           description,
+          author,
         });
         return post;
       } catch (error) {

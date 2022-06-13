@@ -38,7 +38,7 @@ const PostForm = () => {
 
       const dataToSubmit = {
         ...userFormData,
-        author: auth.loggedIn.username,
+        author: auth.loggedIn().username,
         distance: parsedDistance,
       };
 

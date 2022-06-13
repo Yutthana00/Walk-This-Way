@@ -33,6 +33,7 @@ export const CREATE_POST = gql`
       website
       distance
       description
+      author
     }
   }
 `;

@@ -16,7 +16,7 @@ const typeDefs = gql`
     website: String
     distance: Int
     description: String
-    author: User
+    author: String
   }
 
   input PostInput {
@@ -25,6 +25,7 @@ const typeDefs = gql`
     website: String
     distance: Int
     description: String
+    author: String
   }
 
   type Auth {

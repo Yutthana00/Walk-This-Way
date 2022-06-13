@@ -29,6 +29,10 @@ const PostSchema = new Schema({
     type: String,
     maxlength: 280,
   },
+
+  author: {
+    type: String,
+  },
 });
 
 const Post = model("Post", PostSchema);
