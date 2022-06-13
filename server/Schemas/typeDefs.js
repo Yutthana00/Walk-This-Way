@@ -16,6 +16,7 @@ const typeDefs = gql`
     website: String
     distance: Int
     description: String
+    author: User
   }
 
   input PostInput {
