@@ -14,7 +14,9 @@ import Home from "./pages/home";
 import AuthProvider from "./utils/AuthProvider";
 import LoginForm from "./pages/login";
 import SignupForm from "./pages/signup";
-import "./signUp.css";
+import FQA from "./pages/FQA";
+import Header from "./components/header";
+// import Footer from "./components/footer";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -45,14 +47,14 @@ function App() {
       <AuthProvider>
         {/*Wrap all page elemets in Router Component to keep track of location state*/}
         <Router>
-          {/* <Header /> */}
           {/* Routes Component can only have Route Components within it!! */}
+          <Header />
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/login" element={<LoginForm />}></Route>
             <Route path="/signup" element={<SignupForm />}></Route>
+            <Route path="/FQA" element={<FQA />}></Route>
           </Routes>
-
           {/* <Footer /> */}
         </Router>
       </AuthProvider>
