@@ -27,7 +27,7 @@ export const LOGIN_USER = gql`
 export const CREATE_POST = gql`
   mutation createPost($postData: PostInput!) {
     createPost(postData: $postData) {
-      postId
+      _id
       image
       location
       website

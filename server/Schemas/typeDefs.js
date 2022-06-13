@@ -10,7 +10,7 @@ const typeDefs = gql`
   }
 
   type Post {
-    postId: ID!
+    _id: ID!
     image: String
     location: String
     website: String
