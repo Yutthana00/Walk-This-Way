@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import PostForm from "../components/createPost";
 import GetPosts from "../components/getPosts";
 import { useAuthContext } from "../utils/AuthProvider";
 import "../signUp.css";
@@ -20,10 +19,13 @@ const Home = () => {
   return (
     <div>
       <h1>Welcome</h1>
-
-      <PostForm />
       <GetPosts />
-          <button onClick={auth.logout}>logout</button>  
+
+      <Link to={"/createPost"}>
+        <button>Want to Create a Post? Click Me</button>
+      </Link>
+      <br />
+      <button onClick={auth.logout}>logout</button>
     </div>
   );
 };
