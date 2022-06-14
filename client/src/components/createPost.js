@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutations";
 import { useAuthContext } from "../utils/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
 //import auth from "../utils/auth";
+
 const INITIAL_FORM_STATE = {
   image: "",
   location: "",
@@ -13,7 +15,10 @@ const INITIAL_FORM_STATE = {
 };
 
 const PostForm = () => {
+  // Hooks need to be in a position where they can load in the same order everytime
+
   const auth = useAuthContext();
+  const navigate = useNavigate();
   const [userFormData, setUserFormData] = useState(INITIAL_FORM_STATE);
   const [error, setError] = useState("");
 
@@ -49,79 +54,86 @@ const PostForm = () => {
       });
 
       setUserFormData(INITIAL_FORM_STATE);
+      // When done, programmatically navigate the user to the homepage
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
   };
   return (
-    <form onSubmit={handleFormSubmit}>
-      <div className="form-inner">
-        <h2>Post Your Hike!</h2>
+    <>
+      <form onSubmit={handleFormSubmit}>
+        <div className="form-inner">
+          <h2>Post Your Hike!</h2>
 
-        <div className="form-group">
-          <label htmlFor="name">Image</label>
-          <input
-            id="image"
-            name="image"
-            value={userFormData.image}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="upload your image here"
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="name">Image</label>
+            <input
+              id="image"
+              name="image"
+              value={userFormData.image}
+              onChange={handleInputChange}
+              type="text"
+              placeholder="upload your image here"
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="name">Location</label>
-          <input
-            id="location"
-            name="location"
-            value={userFormData.location}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="location"
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="name">Location</label>
+            <input
+              id="location"
+              name="location"
+              value={userFormData.location}
+              onChange={handleInputChange}
+              type="text"
+              placeholder="location"
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="name">Route</label>
-          <input
-            id="website"
-            name="website"
-            value={userFormData.website}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="post a route URL here"
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="name">Route</label>
+            <input
+              id="website"
+              name="website"
+              value={userFormData.website}
+              onChange={handleInputChange}
+              type="text"
+              placeholder="post a route URL here"
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="name">Distance</label>
-          <input
-            id="distance"
-            name="distance"
-            value={userFormData.distance}
-            onChange={handleInputChange}
-            type="number"
-            placeholder="miles/kms"
-          />
-        </div>
+          <div className="form-group">
+            <label htmlFor="name">Distance</label>
+            <input
+              id="distance"
+              name="distance"
+              value={userFormData.distance}
+              onChange={handleInputChange}
+              type="number"
+              placeholder="miles/kms"
+            />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="name">Description</label>
-          <input
-            id="description"
-            name="description"
-            value={userFormData.description}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="post a description of your hike here"
-          />
+          <div className="form-group">
+            <label htmlFor="name">Description</label>
+            <input
+              id="description"
+              name="description"
+              value={userFormData.description}
+              onChange={handleInputChange}
+              type="text"
+              placeholder="post a description of your hike here"
+            />
+          </div>
+          {error && <p>{error}</p>}
+          {apiError && <p>Something has gone wrong with the server!</p>}
+          <input className="form-btn" type="submit" value="post" />
         </div>
-        {error && <p>{error}</p>}
-        {apiError && <p>Something has gone wrong with the server!</p>}
-        <input className="form-btn" type="submit" value="post" />
-      </div>
-    </form>
+      </form>
+      <Link to={"/"}>
+        <button> Go Back </button>
+      </Link>
+    </>
   );
 };
 
