@@ -1,17 +1,14 @@
 import React from "react";
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 
 const Header = () => {
   return (
     <React.Fragment>
-      <AppBar sx ={{background: "#000000"}}>
+      <AppBar sx={{ background: "#000000" }}>
         <Toolbar>
-          <Typography>
-            LOGO
-          </Typography>
-          
+          <Typography>LOGO</Typography>
         </Toolbar>
       </AppBar>
     </React.Fragment>
@@ -83,7 +80,7 @@ export default Header;
 //               textDecoration: 'none',
 //             }}
 //           >
-//             LOGO 
+//             LOGO
 //           </Typography>
 
 //           {/* Hambermenu */}

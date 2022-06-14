@@ -14,7 +14,7 @@ import Home from "./pages/home";
 import AuthProvider from "./utils/AuthProvider";
 import LoginForm from "./pages/login";
 import SignupForm from "./pages/signup";
-import FQA from "./pages/FQA";
+import FAQ from "./pages/FAQ";
 import Header from "./components/header";
 import PostForm from "./components/createPost";
 import Dashboard from "./pages/dashboard";
@@ -56,7 +56,7 @@ function App() {
             <Route path="/login" element={<LoginForm />}></Route>
             <Route path="/signup" element={<SignupForm />}></Route>
             <Route path="/createPost" element={<PostForm />}></Route>
-            <Route path="/FQA" element={<FQA />}></Route>
+            <Route path="/FAQ" element={<FAQ />}></Route>
             <Route path="/dashboard" element={<Dashboard />}></Route>
           </Routes>
           {/* <Footer /> */}
