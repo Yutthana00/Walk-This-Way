@@ -1,6 +1,6 @@
-body {
+/* body {
   background-color: rgb(23, 23, 23);
-}
+} */
 
 /* .App1 {
   height: 100vh;
@@ -36,8 +36,7 @@ form:after {
   background-image: linear-gradient(
     to bottom right,
     rgb(131, 251, 255),
-    rgb(184, 248, 80),
-    rgb(234, 116, 13)
+    rgb(184, 248, 80)
   );
 }
 
