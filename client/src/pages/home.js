@@ -21,9 +21,16 @@ const Home = () => {
       <h1>Welcome</h1>
       <GetPosts />
 
+      <Link to={"/dashboard"}>
+        <button>Go To Your Dashboard</button>
+      </Link>
+
+      <br />
+
       <Link to={"/createPost"}>
         <button>Want to Create a Post? Click Me</button>
       </Link>
+
       <br />
       <button onClick={auth.logout}>logout</button>
     </div>

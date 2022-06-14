@@ -17,6 +17,7 @@ import SignupForm from "./pages/signup";
 import FQA from "./pages/FQA";
 import Header from "./components/header";
 import PostForm from "./components/createPost";
+import Dashboard from "./pages/dashboard";
 // import Footer from "./components/footer";
 
 const httpLink = createHttpLink({
@@ -56,7 +57,7 @@ function App() {
             <Route path="/signup" element={<SignupForm />}></Route>
             <Route path="/createPost" element={<PostForm />}></Route>
             <Route path="/FQA" element={<FQA />}></Route>
-            <Route path=""></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
           </Routes>
           {/* <Footer /> */}
         </Router>
