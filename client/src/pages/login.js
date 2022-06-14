@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { LOGIN_USER } from "../utils/mutations";
 import { useAuthContext } from "../utils/AuthProvider";
-import "../signUp.css";
+// import "../signUp.css";
 
 import "../components/image/beach.jpg";
 

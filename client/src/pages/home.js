@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import GetPosts from "../components/getPosts";
 import { useAuthContext } from "../utils/AuthProvider";
-import "../signUp.css";
+// import "../signUp.css";
 
 const Home = () => {
   const auth = useAuthContext();
