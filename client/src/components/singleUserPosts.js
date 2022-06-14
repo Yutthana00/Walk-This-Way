@@ -6,7 +6,7 @@ import { SINGLE_USER_POSTS } from "../utils/queries";
 const GetUserPosts = () => {
   //const auth = useAuthContext();
   const { loading, data } = useQuery(SINGLE_USER_POSTS);
-  const posts = data?.posts || [];
+  const posts = data?.singleUserPosts || [];
   if (!posts.length) {
     return <h3>You've not created a post yet! Why not create one here</h3>;
   }
