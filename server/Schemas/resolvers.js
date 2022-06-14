@@ -4,10 +4,20 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    //get all posts
     posts: async () => {
       return Post.find();
     },
+    //get posts by a single user
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne(
+          { _id: context.user._id } || { username: context.user.username }
+        );
+      }
+    },
   },
+
   // Mutations will add or update any kind of data in our db
   Mutation: {
     // Creating a User
@@ -40,7 +50,8 @@ const resolvers = {
     // Add a post to database
     createPost: async (
       parent,
-      args
+      args,
+      context
       // { image, location, website, distance, description }
     ) => {
       try {
@@ -54,11 +65,27 @@ const resolvers = {
           description,
           author,
         });
+        if (context.user) {
+          const updatedUser = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $push: { posts: post } },
+            { new: true }
+          );
+          return updatedUser;
+        }
         return post;
       } catch (error) {
         console.log(error);
         console.log("post error at createPost resolvers");
         return null;
+        // if (context.user) {
+        //   const updatedUser = await User.findByIdAndUpdate(
+        //     { _id: context.user._id },
+        //     { $push: { posts: post } },
+        //     { new: true }
+        //   );
+        //updatedUser;
+        //} else {return}
       }
     },
   },
