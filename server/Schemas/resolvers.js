@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const Post = require("../models/Post");
 const { signToken } = require("../utils/auth");
+//const { default: context } = require("react-bootstrap/esm/AccordionContext");
 
 const resolvers = {
   Query: {
@@ -8,13 +9,17 @@ const resolvers = {
     posts: async () => {
       return Post.find();
     },
-    //get posts by a single user
+    //get a single user
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne(
           { _id: context.user._id } || { username: context.user.username }
         );
       }
+    },
+    //get posts from a single user
+    singleUserPosts: async (parent, args, context) => {
+      return Post.find({ author: context.user.username });
     },
   },
 

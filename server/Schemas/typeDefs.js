@@ -17,6 +17,7 @@ const typeDefs = gql`
     distance: Int
     description: String
     author: String
+    postId: ID
   }
 
   input PostInput {
@@ -36,6 +37,7 @@ const typeDefs = gql`
   type Query {
     me: User
     posts: [Post]
+    singleUserPosts: [Post]
   }
 
   type Mutation {
