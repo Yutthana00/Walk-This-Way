@@ -1,20 +1,48 @@
 import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+// import { Link } from 'react-router-dom';
+import { Navbar, Nav, NavDropdown, Container, Form, Button, FormControl} from 'react-bootstrap';
+// import FAQ from "../pages/FQA"
+
+// import useAuthContext from '../utils/AuthProvider';
 
 const Header = () => {
+
+
   return (
-    <React.Fragment>
-      <AppBar sx={{ background: "#000000" }}>
-        <Toolbar>
-          <Typography>LOGO</Typography>
-        </Toolbar>
-      </AppBar>
-    </React.Fragment>
+    <>
+    <Navbar bg="light" expand="lg">
+      <Container fluid>
+        <Navbar.Brand href="#">LOGO</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/signup">Sign Up</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
+            <NavDropdown title="Link" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action5">
+                Something else here
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="#" disabled>
+              Link
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+    </>
   );
 };
 export default Header;
+
 // export default Header;
 // import * as React from 'react';
 // import AppBar from '@mui/material/AppBar';
@@ -80,7 +108,7 @@ export default Header;
 //               textDecoration: 'none',
 //             }}
 //           >
-//             LOGO
+//             LOGO 
 //           </Typography>
 
 //           {/* Hambermenu */}
