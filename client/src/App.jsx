@@ -8,6 +8,7 @@ import {
 } from "@apollo/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
+import "./App.css"
 
 // Imported Pages, Components or CSS
 import Home from "./pages/home";
@@ -16,8 +17,10 @@ import LoginForm from "./pages/login";
 import SignupForm from "./pages/signup";
 import FAQ from "./pages/FAQ";
 import Header from "./components/header";
+import Footer from "./components/footer";
 import PostForm from "./components/createPost";
 import Dashboard from "./pages/dashboard";
+import Card from "./components/card.tsx"; 
 // import Footer from "./components/footer";
 
 const httpLink = createHttpLink({
@@ -58,8 +61,9 @@ function App() {
             <Route path="/createPost" element={<PostForm />}></Route>
             <Route path="/FAQ" element={<FAQ />}></Route>
             <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/card" element={<Card />}></Route>
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </Router>
       </AuthProvider>
     </ApolloProvider>
