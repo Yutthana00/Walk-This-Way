@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 // import { Link } from 'react-router-dom';
-import { Navbar, Nav,       Container, Button, NavLink} from 'react-bootstrap';
+import { Navbar, Nav, Container, Button, NavLink} from 'react-bootstrap';
 import { useAuthContext } from "../utils/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -131,7 +131,7 @@ export default Header;
 //               textDecoration: 'none',
 //             }}
 //           >
-//             LOGO 
+//             LOGO
 //           </Typography>
 
 //           {/* Hambermenu */}
