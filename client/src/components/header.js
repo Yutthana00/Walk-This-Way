@@ -1,48 +1,71 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, Container, Form, Button, FormControl} from 'react-bootstrap';
-// import FAQ from "../pages/FQA"
+import { Navbar, Nav,       Container, Button, NavLink} from 'react-bootstrap';
+import { useAuthContext } from "../utils/AuthProvider";
+import { useNavigate } from "react-router-dom";
+
+
 
 // import useAuthContext from '../utils/AuthProvider';
 
 const Header = () => {
 
 
+  const auth = useAuthContext();
+  const navigate = useNavigate(); 
+
+  useEffect(() => {
+    if (!auth.loggedIn()) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
+ 
     <>
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
-        <Navbar.Brand href="#">LOGO</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/signup">Sign Up</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      <Navbar sticky="top" bg="dark" expand="lg" variant="dark">
+        <Container fluid>
+          <NavLink to="/"><img src={require("./image/logo.png")} width="60" height="30" alt="Company logo"  /> </NavLink>
+          
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+          
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll
+            >
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/signup">Sign Up</Nav.Link>
+              <Nav.Link href="/login">Login</Nav.Link>
+              <Nav.Link href="/FAQ">FAQ</Nav.Link>
+              <Nav.Link href="/card">Card</Nav.Link>
+              <Nav.Link href="/getPosts">Posts</Nav.Link>
+              
+              </Nav>
+
+            <Nav>
+              <Button variant="primary" onClick={auth.logout}>Logout</Button>
+            </Nav>
+
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
+
   );
 };
 export default Header;
 
+// <NavDropdown title="Navdropdown" id="navbarScrollingDropdown">
+              //   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              //   <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+              //   <NavDropdown.Divider />
+              //   <NavDropdown.Item href="#action5">
+              //     Something else here
+              //   </NavDropdown.Item>
+              // </NavDropdown>
+              
 // export default Header;
 // import * as React from 'react';
 // import AppBar from '@mui/material/AppBar';
