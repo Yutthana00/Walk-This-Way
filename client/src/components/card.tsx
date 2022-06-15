@@ -9,10 +9,45 @@ import Link from '@mui/joy/Link';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
 
-export default function ContainerResponsive() {
+import { useQuery } from "@apollo/client";
+
+import { GET_POSTS } from "../utils/queries";
+
+const GetPosts = () => {
+  const { loading, data } = useQuery(GET_POSTS);
+  const posts = data?.posts || [];
+  if (!posts.length) {
+    return <h3>No Posts Yet</h3>
+};
+return (
+  <div>
+    {loading ? (
+      <div>Loading...</div>
+    ) : (
+      <div>
+        {posts?.length &&
+          posts.map((post) => (
+            <div key={post._id}>
+              <div>Location: {post.location}</div>
+              <div>Author: {post.author}</div>
+              <div>Image: {post.image}</div>
+              <div>Distance: {post.distance}</div>
+              <div>Description: {post.description}</div>
+              <div>URL: {post.website}</div>
+            </div>
+          ))}
+      </div>
+    )}
+  </div>
+);
+};
+
+const card = () => {
+
     return (
-      // Card Background
-      <Box sx={{ minHeight: 350 }}>
+      <>
+{/* Card Background  */}
+      <Box sx={{ minHeight: 350,  }}>
         <Card
           variant="outlined"
           sx={(theme) => ({
@@ -89,6 +124,7 @@ export default function ContainerResponsive() {
                 pointerEvents: 'none',
               }}
             >
+
               {/* IMG upload */}
               <img
                 alt=""
@@ -111,6 +147,7 @@ export default function ContainerResponsive() {
                   Team M
                 </Typography>
               </div>
+
               {/* Heart Button */}
               <IconButton
                 size="sm"
@@ -120,11 +157,14 @@ export default function ContainerResponsive() {
               >
                 <FavoriteBorderRoundedIcon color="danger" />
               </IconButton>
+{/* Text Discription */}
             </Box>
             <Typography level="body2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Typography>
           </Box>
+
         </Card>
       </Box>
+    </>
     );
-  }
-  
+  };
+export default card;
