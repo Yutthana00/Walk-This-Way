@@ -31,8 +31,6 @@ const Home = () => {
         <button>Want to Create a Post? Click Me</button>
       </Link>
 
-      <br />
-      <button onClick={auth.logout}>logout</button>
     </div>
   );
 };
