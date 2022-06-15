@@ -20,7 +20,11 @@ const GetPosts = () => {
               <div key={post._id}>
                 <div>Location: {post.location}</div>
                 <div>Author: {post.author}</div>
-                <div>Image: {post.image}</div>
+                <img
+                  src={post.image}
+                  style={{ height: 150, width: 150 }}
+                  alt={`posted by ${post.author}`}
+                />
                 <div>Distance: {post.distance}</div>
                 <div>Description: {post.description}</div>
                 <div>URL: {post.website}</div>

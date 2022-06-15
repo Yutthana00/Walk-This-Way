@@ -47,7 +47,6 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    // <div className="App1">
     <ApolloProvider client={client}>
       <AuthProvider>
         {/*Wrap all page elemets in Router Component to keep track of location state*/}
@@ -67,7 +66,6 @@ function App() {
         </Router>
       </AuthProvider>
     </ApolloProvider>
-    // </div>
   );
 }
 

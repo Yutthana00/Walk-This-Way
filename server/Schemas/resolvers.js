@@ -1,7 +1,14 @@
+const { ApolloError } = require("apollo-server-express");
+const cloudinary = require("cloudinary").v2;
 const User = require("../models/User");
 const Post = require("../models/Post");
 const { signToken } = require("../utils/auth");
-//const { default: context } = require("react-bootstrap/esm/AccordionContext");
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const resolvers = {
   Query: {
@@ -53,23 +60,29 @@ const resolvers = {
     },
 
     // Add a post to database
-    createPost: async (
-      parent,
-      args,
-      context
-      // { image, location, website, distance, description }
-    ) => {
+    createPost: async (parent, args, context) => {
       try {
-        const { image, location, website, distance, description, author } =
-          args.postData;
+        const {
+          image: base64Image,
+          location,
+          website,
+          distance,
+          description,
+          author,
+        } = args.postData;
+
+        const response = await cloudinary.uploader.upload(base64Image);
+        const imageUrl = response.url || "";
+
         const post = await Post.create({
-          image,
+          image: imageUrl,
           location,
           website,
           distance,
           description,
           author,
         });
+
         if (context.user) {
           const updatedUser = await User.findByIdAndUpdate(
             { _id: context.user._id },
@@ -82,15 +95,12 @@ const resolvers = {
       } catch (error) {
         console.log(error);
         console.log("post error at createPost resolvers");
+
+        if (error?.message.includes("File size too large")) {
+          throw new ApolloError("Image size is too big", "IMAGE_TOO_BIG");
+        }
+
         return null;
-        // if (context.user) {
-        //   const updatedUser = await User.findByIdAndUpdate(
-        //     { _id: context.user._id },
-        //     { $push: { posts: post } },
-        //     { new: true }
-        //   );
-        //updatedUser;
-        //} else {return}
       }
     },
   },
