@@ -9,17 +9,14 @@ const UserSetting = () => {
   return (
     <>
       <div>
-        {" "}
         {loading ? (
           <div>Loading...</div>
         ) : (
           <div>
-            {user.map((user) => (
-              <div>
-                <div>Username: {user.username}</div>
-                <div>Posts Count: {user.postCount}</div>
-              </div>
-            ))}
+            <div>
+              <div>Username: {user.username}</div>
+              <div>Posts Count: {user.postCount}</div>
+            </div>
           </div>
         )}
       </div>
