@@ -5,6 +5,23 @@ import { useAuthContext } from "../utils/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 //import auth from "../utils/auth";
 
+const convertImageToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    // create new file reader for image
+    const fileReader = new FileReader();
+
+    fileReader.readAsDataURL(file);
+
+    // set callbacks for promise
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+};
+
 const INITIAL_FORM_STATE = {
   image: "",
   location: "",
@@ -26,13 +43,27 @@ const PostForm = () => {
 
   if (error) console.log(error);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = async (event) => {
     const { name, value } = event.target;
+
+    if (name === "image") {
+      const base64Image = await convertImageToBase64(event.target.files[0]);
+
+      const imageDataObject = {
+        preview: URL.createObjectURL(event.target.files[0]),
+        data: base64Image,
+      };
+
+      setUserFormData({ ...userFormData, image: imageDataObject });
+      return;
+    }
+
     setUserFormData({ ...userFormData, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const parsedDistance = parseInt(userFormData.distance);
 
@@ -45,11 +76,12 @@ const PostForm = () => {
         ...userFormData,
         author: auth.getProfile().data.username,
         distance: parsedDistance,
+        image: userFormData?.image?.data || "",
       };
 
       setError("");
 
-      const { data } = await createPost({
+      await createPost({
         variables: { postData: dataToSubmit },
       });
 
@@ -58,6 +90,10 @@ const PostForm = () => {
       navigate("/");
     } catch (error) {
       console.error(error);
+
+      if (error.message === "Image size is too big") {
+        setError("The image you uploaded is too big, try again");
+      }
     }
   };
   return (
@@ -68,14 +104,21 @@ const PostForm = () => {
 
           <div className="form-group">
             <label htmlFor="name">Image</label>
+            {userFormData?.image?.preview && (
+              <img
+                src={userFormData?.image?.preview}
+                alt="preview"
+                width="100"
+                height="100"
+              />
+            )}
             <input
+              type="file"
               id="image"
               name="image"
-              value={userFormData.image}
               onChange={handleInputChange}
-              type="text"
-              placeholder="upload your image here"
             />
+            <input type="submit" value="Upload Image" name="submit" />
           </div>
 
           <div className="form-group">
