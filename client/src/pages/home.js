@@ -6,7 +6,7 @@ import { useAuthContext } from "../utils/AuthProvider";
 import "../signUp.css";
 
 const Home = () => {
-  const auth = useAuthContext;
+  const auth = useAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {
