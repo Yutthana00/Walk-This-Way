@@ -11,16 +11,16 @@ import { setContext } from "@apollo/client/link/context";
 import "./App.css"
 
 // Imported Pages, Components or CSS
-import Home from "./pages/home";
 import AuthProvider from "./utils/AuthProvider";
+import Header from "./components/header";
+import Home from "./pages/home";
 import LoginForm from "./pages/login";
 import SignupForm from "./pages/signup";
+import Card from "./components/card"; 
 import FAQ from "./pages/FAQ";
-import Header from "./components/header";
-import Footer from "./components/footer";
 import PostForm from "./components/createPost";
 import Dashboard from "./pages/dashboard";
-import Card from "./components/card.tsx"; 
+import Footer from "./components/footer";
 // import Footer from "./components/footer";
 
 const httpLink = createHttpLink({
