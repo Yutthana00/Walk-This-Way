@@ -36,6 +36,7 @@ const SignupForm = () => {
       navigate("/");
     } catch (err) {
       console.error(err);
+      navigate("/404");
     }
     console.log(userFormData);
     //clear form once submitted

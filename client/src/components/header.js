@@ -1,18 +1,14 @@
 import React, { useEffect } from "react";
 // import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Button, NavLink} from 'react-bootstrap';
+import { Navbar, Nav, Container, Button, NavLink } from "react-bootstrap";
 import { useAuthContext } from "../utils/AuthProvider";
 import { useNavigate } from "react-router-dom";
-
-
 
 // import useAuthContext from '../utils/AuthProvider';
 
 const Header = () => {
-
-
   const auth = useAuthContext();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!auth.loggedIn()) {
@@ -21,18 +17,23 @@ const Header = () => {
   }, []);
 
   return (
- 
     <>
       <Navbar sticky="top" bg="dark" expand="lg" variant="dark">
         <Container fluid>
-          <NavLink to="/"><img src={require("./image/logo.png")} width="60" height="30" alt="Company logo"  /> </NavLink>
-          
+          <NavLink to="/">
+            <img
+              src={require("./image/logo.png")}
+              width="60"
+              height="30"
+              alt="Company logo"
+            />{" "}
+          </NavLink>
+
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-          
             <Nav
               className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
+              style={{ maxHeight: "100px" }}
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
@@ -41,31 +42,31 @@ const Header = () => {
               <Nav.Link href="/FAQ">FAQ</Nav.Link>
               <Nav.Link href="/card">Card</Nav.Link>
               <Nav.Link href="/getPosts">Posts</Nav.Link>
-              
-              </Nav>
-
-            <Nav>
-              <Button variant="primary" onClick={auth.logout}>Logout</Button>
+              <Nav.Link href="/404">404</Nav.Link>
             </Nav>
 
+            <Nav>
+              <Button variant="primary" onClick={auth.logout}>
+                Logout
+              </Button>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
     </>
-
   );
 };
 export default Header;
 
 // <NavDropdown title="Navdropdown" id="navbarScrollingDropdown">
-              //   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              //   <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-              //   <NavDropdown.Divider />
-              //   <NavDropdown.Item href="#action5">
-              //     Something else here
-              //   </NavDropdown.Item>
-              // </NavDropdown>
-              
+//   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+//   <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+//   <NavDropdown.Divider />
+//   <NavDropdown.Item href="#action5">
+//     Something else here
+//   </NavDropdown.Item>
+// </NavDropdown>
+
 // export default Header;
 // import * as React from 'react';
 // import AppBar from '@mui/material/AppBar';

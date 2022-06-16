@@ -8,7 +8,8 @@ import {
 } from "@apollo/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
-import "./App.css"
+import { ChakraProvider } from "@chakra-ui/react";
+import "./App.css";
 
 // Imported Pages, Components or CSS
 import AuthProvider from "./utils/AuthProvider";
@@ -16,11 +17,12 @@ import Header from "./components/header";
 import Home from "./pages/home";
 import LoginForm from "./pages/login";
 import SignupForm from "./pages/signup";
-import Card from "./components/card"; 
+import Card from "./components/card";
 import FAQ from "./pages/FAQ";
 import PostForm from "./components/createPost";
 import Dashboard from "./pages/dashboard";
 import Footer from "./components/footer";
+import Error from "./pages/404";
 // import Footer from "./components/footer";
 
 const httpLink = createHttpLink({
@@ -48,23 +50,26 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <AuthProvider>
-        {/*Wrap all page elemets in Router Component to keep track of location state*/}
-        <Router>
-          {/* Routes Component can only have Route Components within it!! */}
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/login" element={<LoginForm />}></Route>
-            <Route path="/signup" element={<SignupForm />}></Route>
-            <Route path="/createPost" element={<PostForm />}></Route>
-            <Route path="/FAQ" element={<FAQ />}></Route>
-            <Route path="/dashboard" element={<Dashboard />}></Route>
-            <Route path="/card" element={<Card />}></Route>
-          </Routes>
-          <Footer />
-        </Router>
-      </AuthProvider>
+      <ChakraProvider>
+        <AuthProvider>
+          {/*Wrap all page elemets in Router Component to keep track of location state*/}
+          <Router>
+            {/* Routes Component can only have Route Components within it!! */}
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/login" element={<LoginForm />}></Route>
+              <Route path="/signup" element={<SignupForm />}></Route>
+              <Route path="/createPost" element={<PostForm />}></Route>
+              <Route path="/FAQ" element={<FAQ />}></Route>
+              <Route path="/dashboard" element={<Dashboard />}></Route>
+              <Route path="/card" element={<Card />}></Route>
+              <Route path="/404" element={<Error />}></Route>
+            </Routes>
+            <Footer />
+          </Router>
+        </AuthProvider>
+      </ChakraProvider>
     </ApolloProvider>
   );
 }
