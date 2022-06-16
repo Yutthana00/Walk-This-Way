@@ -56,15 +56,30 @@ export default function getPosts() {
         backgroundColor={'black'}
         overflow={'hidden'}>
 
-// main img
+        <Box>
+// text section
+          <Text
+          color={'green.500'}
+          textTransform={'uppercase'}
+          fontWeight={800}
+          fontSize={'sm'}
+          letterSpacing={1.1}>
 
+          LOCATION
+
+          </Text>
+           
+        </Box>
+
+// main img
         <Box
-          h={'210px'}
+          h={'250px'}
           bg={'gray.100'}
-          mt={-6}
+          mt={-10}
           mx={-6}
-          mb={6}
-          pos={'relative'}>
+          mb={100}
+          pos={'relative'}
+          text={'white'}>
 
           <Image
             src={
@@ -74,42 +89,28 @@ export default function getPosts() {
           />
         </Box>
 
-// text section
-          <Text
-            color={'green.500'}
-            textTransform={'uppercase'}
-            fontWeight={800}
-            fontSize={'sm'}
-            letterSpacing={1.1}>
-            Blog
-          </Text>
-          
-        <Stack>
-          <Heading
-            // color={useColorModeValue('gray.700', 'white')}
-            fontSize={'2xl'}
-            fontFamily={'body'}>
-            Boost your conversion rate
-          </Heading>
+        <Box>
           <Text color={'white'}>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
             erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
             et ea rebum.
           </Text>
-        </Stack>
+        </Box>
 
 // avatar section
-        <Stack mt={6} direction={'row'} spacing={4} align={'center'} textColor={'white'}>
-          <Avatar
-            // src={'https://avatars0.githubusercontent.com/u/1164541?v=4'}
-            alt={'Author'}
-          />
-          <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-            <Text fontWeight={600}>Achim Rolle</Text>
-            <Text color={'white'}>Feb 08, 2021 · 6min read</Text>
+        <Box>
+          <Stack mt={6} direction={'row'} spacing={4} align={'center'} textColor={'white'}>
+            <Avatar
+              // src={'https://avatars0.githubusercontent.com/u/1164541?v=4'}
+              alt={'Author'}
+            />
+            <Stack direction={'column'} spacing={0} fontSize={'sm'}>
+              <Text fontWeight={600}>Achim Rolle</Text>
+              <Text color={'white'}>Feb 08, 2021 · 6min read</Text>
+            </Stack>
           </Stack>
-        </Stack>
+        </Box>
       </Box>
     </Center>
   );
