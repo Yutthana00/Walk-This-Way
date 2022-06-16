@@ -125,21 +125,13 @@ const resolvers = {
 
     deleteUser: async (parent, args, context) => {
       if (context.user) {
-        return Profile.findOneAndDelete({ _id: context.user._id });
+        await User.findOneAndDelete({ _id: context.user._id });
+        return { success: true };
       }
       if (error) {
+        return { success: false };
         console.log(error);
       }
-    },
-    deletePost: async (parent, { post }, context) => {
-      if (context.user) {
-        return User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { posts: post } },
-          { new: true }
-        );
-      }
-      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
