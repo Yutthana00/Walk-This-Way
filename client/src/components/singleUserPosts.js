@@ -18,19 +18,21 @@ const GetUserPosts = () => {
       ) : (
         <div>
           {posts?.length &&
-            posts.map((post) => (
-              <div key={post._id}>
-                <div>Location: {post.location}</div>
-                <img
-                  alt="here's what you've posted!"
-                  src={post.image}
-                  style={{ height: 150, width: 150 }}
-                />
-                <div>Distance: {post.distance}</div>
-                <div>Description: {post.description}</div>
-                <div>URL: {post.website}</div>
-              </div>
-            ))}
+            posts
+              .map((post) => (
+                <div key={post._id}>
+                  <div>Location: {post.location}</div>
+                  <img
+                    alt="here's what you've posted!"
+                    src={post.image}
+                    style={{ height: 150, width: 150 }}
+                  />
+                  <div>Distance: {post.distance}</div>
+                  <div>Description: {post.description}</div>
+                  <div>URL: {post.website}</div>
+                </div>
+              ))
+              .reverse()}
         </div>
       )}
     </div>
