@@ -1,26 +1,10 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { GET_ME } from "../utils/queries";
-
-const UserSetting = () => {
-  const { loading, data } = useQuery(GET_ME);
-  const user = data?.me || [];
-
+const UserSetting = ({ user }) => {
   return (
-    <>
-      <div>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <div>
-            <div>
-              <div>Username: {user.username}</div>
-              <div>Posts Count: {user.postCount}</div>
-            </div>
-          </div>
-        )}
-      </div>
-    </>
+    <div>
+      <img src={user.profilePic} width="100" height="100" />
+      <div>Username: {user.username}</div>
+      <div>Posts Count: {user.postCount}</div>
+    </div>
   );
 };
 

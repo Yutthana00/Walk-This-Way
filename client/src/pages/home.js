@@ -6,14 +6,14 @@ import { useAuthContext } from "../utils/AuthProvider";
 // import "../signUp.css";
 
 const Home = () => {
-  const auth = useAuthContext();
+  const auth = useAuthContext;
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!auth.loggedIn()) {
       navigate("/login");
     }
-  }, []);
+  }, [auth, navigate]);
 
   // Return the Homepage
   return (
@@ -31,6 +31,14 @@ const Home = () => {
         <button>Want to Create a Post? Click Me</button>
       </Link>
 
+      <br />
+      <button
+        onClick={() => {
+          auth.logout();
+        }}
+      >
+        logout
+      </button>
     </div>
   );
 };

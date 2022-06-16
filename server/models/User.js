@@ -13,9 +13,12 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    // postCount: {
-    //   type: Integer,
-    // },
+
+    profilePic: {
+      type: String,
+      defaultValue: "../../client/src/components/image/user-profile.png",
+    },
+
     posts: [
       {
         type: Schema.Types.ObjectId,
