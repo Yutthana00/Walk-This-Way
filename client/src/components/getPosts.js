@@ -4,7 +4,10 @@ import { GET_POSTS } from "../utils/queries";
 import Card from "./card";
 
 const GetPosts = () => {
-  const { loading, data } = useQuery(GET_POSTS);
+  const { loading, data } = useQuery(GET_POSTS, {
+    pollInterval: 5000,
+    fetchPolicy: "network-only",
+  });
   const posts = data?.posts || [];
   if (!posts.length) {
     return <h3>No Posts Yet</h3>;
