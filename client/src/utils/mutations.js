@@ -24,6 +24,16 @@ export const LOGIN_USER = gql`
   }
 `;
 
+export const ADD_PROFILE_PIC = gql`
+  mutation addProfilePic($profilePic: String) {
+    addProfilePic(profilePic: $profilePic) {
+      _id
+      username
+      profilePic
+    }
+  }
+`;
+
 export const CREATE_POST = gql`
   mutation createPost($postData: PostInput!) {
     createPost(postData: $postData) {
