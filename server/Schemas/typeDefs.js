@@ -44,6 +44,8 @@ const typeDefs = gql`
     signUp(username: String!, password: String!): Auth
     loginUser(username: String!, password: String!): Auth
     createPost(postData: PostInput!): Post
+    deletePost: User
+    deleteUser: User
   }
 `;
 
