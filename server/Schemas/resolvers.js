@@ -103,6 +103,26 @@ const resolvers = {
         return null;
       }
     },
+
+    addProfilePic: async (parent, args, context) => {
+      try {
+        const base64Image = args.profilePic;
+
+        const response = await cloudinary.uploader.upload(base64Image);
+        const imageUrl = response.url || "";
+        if (context.user) {
+          const profilePic = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { profilePic: imageUrl },
+            { new: true }
+          );
+          return profilePic;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     deleteUser: async (parent, args, context) => {
       if (context.user) {
         return Profile.findOneAndDelete({ _id: context.user._id });
