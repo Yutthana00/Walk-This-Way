@@ -60,19 +60,22 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       <Box bg={useColorModeValue('light', 'gray.900')} px={4}>
         <Flex h={'80px'} alignItems={'center'} justifyContent={'space-between'}>
 { /*Navbar Logo */}          
-        <Image boxSize='50px' objectFit={'cover'} src='image/logo.png' 
+        <Image src={'logo.png'} h='50px'
         alt=' navbar company logo'/>
         
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
               <Menu>
-                <Button>
+                <Button as='a' href="/">
                 Home
                 </Button>
-                <Link to={"/FAQ"}> <button>FAQ</button> </Link>
-                <Button>
+                <Button as='a' href="/dashboard">
+                Dashboard
+                </Button>
+                <Button as='a' href="/FAQ">
                 FAQ
                 </Button>
+                
 { /* Dark/light mode button */}       
                 <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
