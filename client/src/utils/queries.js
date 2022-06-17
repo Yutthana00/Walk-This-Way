@@ -9,7 +9,11 @@ export const GET_POSTS = gql`
       website
       distance
       description
-      author
+      author {
+        _id
+        username
+        profilePic
+      }
       postId
     }
   }
@@ -24,7 +28,11 @@ export const SINGLE_USER_POSTS = gql`
       website
       distance
       description
-      author
+      author {
+        _id
+        username
+        profilePic
+      }
       postId
     }
   }
@@ -43,7 +51,11 @@ export const GET_ME = gql`
         website
         distance
         description
-        author
+        author {
+          _id
+          username
+          profilePic
+        }
         postId
       }
       profilePic

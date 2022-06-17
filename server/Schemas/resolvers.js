@@ -1,5 +1,6 @@
 const { ApolloError } = require("apollo-server-express");
 const cloudinary = require("cloudinary").v2;
+const mongoose = require("mongoose");
 const User = require("../models/User");
 const Post = require("../models/Post");
 const { signToken } = require("../utils/auth");
@@ -15,19 +16,23 @@ const resolvers = {
   Query: {
     //get all posts
     posts: async () => {
-      return Post.find();
+      return Post.find().populate("author");
     },
     //get a single user
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne(
           { _id: context.user._id } || { username: context.user.username }
-        );
+        ).populate({ path: "posts", populate: { path: "author" } });
       }
     },
     //get posts from a single user
     singleUserPosts: async (parent, args, context) => {
-      return Post.find({ author: context.user.username });
+      const posts = await Post.find({
+        author: mongoose.Types.ObjectId(context.user._id),
+      }).populate("author");
+
+      return posts;
     },
   },
 
@@ -84,7 +89,7 @@ const resolvers = {
           website,
           distance,
           description,
-          author,
+          author: context.user._id,
         });
 
         if (context.user) {
