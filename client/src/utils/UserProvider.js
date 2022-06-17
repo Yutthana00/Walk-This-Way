@@ -28,7 +28,7 @@ const UserProvider = (props) => {
 
   return (
     <UserContext.Provider
-      value={{ refetchUser: refetch, user, loading, setLoggedIn }}
+      value={{ refetchUser: refetch, user, loading, loggedIn, setLoggedIn }}
       {...props}
     />
   );

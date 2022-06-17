@@ -29,7 +29,7 @@ import { useUserContext } from "../utils/UserProvider";
 
 const Header = () => {
   const auth = useAuthContext();
-  const { user } = useUserContext();
+  const { user, loggedIn } = useUserContext();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,6 +37,12 @@ const Header = () => {
       navigate("/login");
     }
   }, []);
+
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate("/login");
+    }
+  }, [loggedIn, navigate]);
 
   const { colorMode, toggleColorMode } = useColorMode();
   return (
