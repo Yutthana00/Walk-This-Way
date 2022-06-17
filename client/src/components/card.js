@@ -23,7 +23,9 @@ const Card = ({ post }) => {
         overflow={"hidden"}
       >
         <Stack direction={"row"} spacing={4} align={"center"}>
-          <Avatar src={post.author.profilePic} alt={"Author"} />
+          {post?.author?.profilePic && (
+            <Avatar src={post?.author?.profilePic} alt={"Author"} />
+          )}
           <Stack direction={"column"} spacing={0} fontSize={"sm"}>
             <Text color={"gray.300"} fontWeight={600}>
               {post.author.username}
