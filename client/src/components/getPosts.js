@@ -5,7 +5,7 @@ import Card from "./card";
 
 const GetPosts = () => {
   const { loading, data } = useQuery(GET_POSTS, {
-    pollInterval: 5000,
+    pollInterval: 20000,
     fetchPolicy: "network-only",
   });
   const posts = data?.posts || [];
