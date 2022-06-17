@@ -18,26 +18,26 @@ const Home = () => {
   // Return the Homepage
   return (
     <div>
-      <h1>Welcome</h1>
+
       <GetPosts />
 
       <Link to={"/dashboard"}>
-        <button>Go To Your Dashboard</button>
-      </Link>
+      <button>Go To Your Dashboard</button>
+    </Link>
 
       <br />
 
       <Link to={"/createPost"}>
         <Flex
-          margin="5"
-          justifyContent="right"
-          alignItems="right"
-          position="sticky"
+          padding={'20px'}
+          justifyContent={'right'}
+          position={"sticky"}
         >
           <Button
             /* flex={1} */
-            px={4}
-            fontSize={"sm"}
+            px={7}
+            h={'90px'}
+            fontSize={"6xl"}
             rounded={"full"}
             bgGradient="linear(to-r, #008900, #70cb00)"
             color={"white"}
@@ -53,19 +53,11 @@ const Home = () => {
               bg: "blue.500",
             }}
           >
-            Post
+            +
           </Button>
         </Flex>
       </Link>
 
-      <br />
-      <button
-        onClick={() => {
-          auth.logout();
-        }}
-      >
-        logout
-      </button>
     </div>
   );
 };
