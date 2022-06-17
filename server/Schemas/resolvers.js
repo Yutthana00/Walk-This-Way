@@ -4,6 +4,7 @@ const User = require("../models/User");
 const Post = require("../models/Post");
 const { signToken } = require("../utils/auth");
 
+// variables required to use cloudinary - here references sensitive information stored in .env file
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -71,9 +72,12 @@ const resolvers = {
           author,
         } = args.postData;
 
+        //upload base64 encoded image to cloudinary
         const response = await cloudinary.uploader.upload(base64Image);
+        //image URL is where it is stored in cloudinary
         const imageUrl = response.url || "";
 
+        //save image URL to database
         const post = await Post.create({
           image: imageUrl,
           location,
@@ -85,7 +89,9 @@ const resolvers = {
 
         if (context.user) {
           const updatedUser = await User.findByIdAndUpdate(
+            //update user that is currently logged in
             { _id: context.user._id },
+            //push newly created post to posts array for that user
             { $push: { posts: post } },
             { new: true }
           );
@@ -104,15 +110,19 @@ const resolvers = {
       }
     },
 
+    //update existing user by adding or changing a profile picture
     addProfilePic: async (parent, args, context) => {
       try {
         const base64Image = args.profilePic;
 
+        //upload base 64 encoded image to cloudinary
         const response = await cloudinary.uploader.upload(base64Image);
         const imageUrl = response.url || "";
         if (context.user) {
           const profilePic = await User.findByIdAndUpdate(
+            //update user that is currently logged in
             { _id: context.user._id },
+            //save image URL (where is stored in cloudinary) to profilePic
             { profilePic: imageUrl },
             { new: true }
           );
@@ -122,15 +132,16 @@ const resolvers = {
         console.log(error);
       }
     },
-
+    //delete user
     deleteUser: async (parent, args, context) => {
       if (context.user) {
         await User.findOneAndDelete({ _id: context.user._id });
+        //find user that is logged in and delete their account
         return { success: true };
       }
       if (error) {
-        return { success: false };
         console.log(error);
+        return { success: false };
       }
     },
   },

@@ -3,6 +3,8 @@ import { useQuery } from "@apollo/client";
 
 import { GET_POSTS } from "../utils/queries";
 
+//get all posts to display on the dashboard via GetPosts component
+
 const GetPosts = () => {
   const { loading, data } = useQuery(GET_POSTS, { pollInterval: 3000 });
   const posts = data?.posts || [];

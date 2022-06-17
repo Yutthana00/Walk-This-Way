@@ -1,10 +1,8 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { SINGLE_USER_POSTS } from "../utils/queries";
-//import { useAuthContext } from "../utils/AuthProvider";
 
 const GetUserPosts = () => {
-  //const auth = useAuthContext();
   const { loading, data } = useQuery(SINGLE_USER_POSTS);
   const posts = data?.singleUserPosts || [];
   if (!posts.length) {
