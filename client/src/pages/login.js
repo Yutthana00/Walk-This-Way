@@ -88,9 +88,11 @@ const LoginForm = () => {
         button
       </form>
       {/* Link will allow us to use interactive navigation to take the user to the signup page */}
-      <Link to={"/signup"}>
-        <button>Need an Account? Sign Up!</button>
-      </Link>
+      <div className="needAccount">
+        <Link to={"/signup"}>
+          <button >Need an Account? Sign Up!</button>
+        </Link>
+      </div>
     </>
   );
 };
