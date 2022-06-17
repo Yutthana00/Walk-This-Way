@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, ButtonProps, Flex } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import GetPosts from "../components/getPosts";
 import { useAuthContext } from "../utils/AuthProvider";
 // import "../signUp.css";

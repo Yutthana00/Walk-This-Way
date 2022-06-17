@@ -22,14 +22,14 @@ const resolvers = {
       if (context.user) {
         return User.findOne(
           { _id: context.user._id } || { username: context.user.username }
-        ).populate({ path: "posts" });
+        ).populate({ path: "posts", populate: { path: "author" } });
       }
     },
     //get posts from a single user
     singleUserPosts: async (parent, args, context) => {
       const posts = await Post.find({
         author: mongoose.Types.ObjectId(context.user._id),
-      });
+      }).populate("author");
 
       return posts;
     },
