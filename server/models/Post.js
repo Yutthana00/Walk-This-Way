@@ -27,7 +27,6 @@ const PostSchema = new Schema({
 
   description: {
     type: String,
-    maxlength: 280,
   },
 
   author: {
