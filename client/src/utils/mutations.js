@@ -47,3 +47,11 @@ export const CREATE_POST = gql`
     }
   }
 `;
+
+export const DELETE_USER = gql`
+  mutation deleteUser($userId: ID) {
+    deleteUser(userId: $userId) {
+      success
+    }
+  }
+`;

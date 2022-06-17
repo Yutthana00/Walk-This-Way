@@ -6,9 +6,10 @@ import { useAuthContext } from "../utils/AuthProvider";
 import "../signUp.css";
 
 const Home = () => {
-  const auth = useAuthContext;
+  const auth = useAuthContext();
   const navigate = useNavigate();
 
+  //if not logged in, navigate to login page
   useEffect(() => {
     if (!auth.loggedIn()) {
       navigate("/login");
@@ -34,6 +35,7 @@ const Home = () => {
       <br />
       <button
         onClick={() => {
+          //user is logged out when button clicked
           auth.logout();
         }}
       >
