@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // import { Link } from 'react-router-dom';
 // import { Navbar, Nav, Container, Button, NavLink } from "react-bootstrap";
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 import {
   Box,
   Flex,
@@ -18,15 +18,13 @@ import {
   Stack,
   useColorMode,
   Center,
-  Image, 
-  Text
-} from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+  Image,
+  Text,
+} from "@chakra-ui/react";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 import { useAuthContext } from "../utils/AuthProvider";
 import { useNavigate } from "react-router-dom";
-
-
 
 const Header = () => {
   const auth = useAuthContext();
@@ -38,71 +36,63 @@ const Header = () => {
     }
   }, []);
 
-
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}>
-    {children}
-  </Link>
-);
+  const NavLink = ({ children }: { children: ReactNode }) => (
+    <Link
+      px={2}
+      py={1}
+      rounded={"md"}
+      _hover={{
+        textDecoration: "none",
+        bg: useColorModeValue("gray.200", "gray.700"),
+      }}
+      href={"#"}
+    >
+      {children}
+    </Link>
+  );
 
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box bg={useColorModeValue('light', 'gray.900')} px={4}>
-        <Flex h={'80px'} alignItems={'center'} justifyContent={'space-between'}>
-{ /*Navbar Logo */}          
-        <Image src={'logo.png'} h='50px'
-        alt=' navbar company logo'/>
-        
-          <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
+      <Box bg={useColorModeValue("light", "#161717")} px={4}>
+        <Flex h={"80px"} alignItems={"center"} justifyContent={"space-between"}>
+          {/*Navbar Logo */}
+          <Image src={"logo.png"} h="50px" alt=" navbar company logo" />
+
+          <Flex alignItems={"center"}>
+            <Stack direction={"row"} spacing={7}>
               <Menu>
-                <Button as='a' href="/">
-                Home
+                <Button as="a" href="/">
+                  Home
                 </Button>
-                <Button as='a' href="/dashboard">
-                Dashboard
+                <Button as="a" href="/dashboard">
+                  Dashboard
                 </Button>
-                <Button as='a' href="/FAQ">
-                FAQ
+                <Button as="a" href="/FAQ">
+                  FAQ
                 </Button>
-                
-{ /* Dark/light mode button */}       
+
+                {/* Dark/light mode button */}
                 <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button>
+                  {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                </Button>
 
                 <MenuButton
                   as={Button}
-                  rounded={'full'}
-                  variant={'link'}
-                  cursor={'pointer'}
-                  minW={0}>
-
-                  
-{/* Navbar visible avatar */}
-                  <Avatar
-                    size={'md'}
-                    src={''}
-                  />
+                  rounded={"full"}
+                  variant={"link"}
+                  cursor={"pointer"}
+                  minW={0}
+                >
+                  {/* Navbar visible avatar */}
+                  <Avatar size={"md"} src={""} />
                 </MenuButton>
-                
-                <MenuList alignItems={'center'}>
+
+                <MenuList alignItems={"center"}>
                   <br />
                   <Center>
-                    <Avatar
-                      size={'2xl'}
-                      src={''}
-                    />
+                    <Avatar size={"2xl"} src={""} />
                   </Center>
                   <br />
                   <Center>
@@ -111,24 +101,30 @@ const NavLink = ({ children }: { children: ReactNode }) => (
                   <br />
 
                   <MenuDivider />
-                  <Stack spacing={0} align={'center'}>
-{/* Followers */}
-                  <Text fontWeight={600}>23k</Text>
-                  <Text fontSize={'sm'} color={'gray.500'}>
-                    Followers </Text>
+                  <Stack spacing={0} align={"center"}>
+                    {/* Followers */}
+                    <Text fontWeight={600}>23k</Text>
+                    <Text fontSize={"sm"} color={"gray.500"}>
+                      Followers{" "}
+                    </Text>
 
-                  <Text cursor={'pointer'} padding={'15px'} >Profile</Text>
-
-                  
+                    <Text cursor={"pointer"} padding={"15px"}>
+                      Profile
+                    </Text>
                   </Stack>
-  { /*Logout Button */}
-  {/*<MenuItem>Logout</MenuItem>*/}
-                  <Center padding={'10px'}>
-                    <button justifyContent={'center'} onClick={() => { auth.logout(); }} >
-                    Logout </button>
+                  {/*Logout Button */}
+                  {/*<MenuItem>Logout</MenuItem>*/}
+                  <Center padding={"10px"}>
+                    <button
+                      justifyContent={"center"}
+                      onClick={() => {
+                        auth.logout();
+                      }}
+                    >
+                      Logout{" "}
+                    </button>
                   </Center>
                 </MenuList>
-                
               </Menu>
             </Stack>
           </Flex>
@@ -136,9 +132,9 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       </Box>
     </>
   );
-}
+};
 
-  export default Header;
+export default Header;
 
 //   return (
 //     <>
@@ -183,7 +179,6 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 //     </>
 //   );
 // };
-
 
 // <NavDropdown title="Navdropdown" id="navbarScrollingDropdown">
 //   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>

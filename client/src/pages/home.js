@@ -18,20 +18,15 @@ const Home = () => {
   // Return the Homepage
   return (
     <div>
-
       <GetPosts />
       <br />
 
       <Link to={"/createPost"}>
-        <Flex
-          padding={'20px'}
-          justifyContent={'right'}
-          position={"sticky"}
-        >
+        <Flex padding={"20px"} justifyContent={"right"} position={"sticky"}>
           <Button
             /* flex={1} */
             px={7}
-            h={'90px'}
+            h={"90px"}
             fontSize={"6xl"}
             rounded={"full"}
             bgGradient="linear(to-r, #008900, #70cb00)"
@@ -52,7 +47,6 @@ const Home = () => {
           </Button>
         </Flex>
       </Link>
-
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Heading } from "@chakra-ui/react";
 import GetUserPosts from "../components/singleUserPosts";
 import UserSetting from "../components/userSetting";
 import ProfilePic from "../components/profilePic";
@@ -15,8 +16,19 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1> Here is your dashboard </h1>
-      <h2> Your Profile</h2>
+      {/* TITLE */}
+      <Heading
+        mx={"auto"}
+        maxW={"lg"}
+        py={12}
+        px={6}
+        fontSize={"4xl"}
+        spacing={0}
+        align={"center"}
+      >
+        Profile Dashboard
+      </Heading>
+
       <UserSetting user={user} />
       <br />
 
@@ -33,6 +45,7 @@ const Dashboard = () => {
           refetchUsers={refetch}
         />
       )}
+
       <button>Delete Account</button>
     </div>
   );
