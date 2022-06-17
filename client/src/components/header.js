@@ -46,7 +46,10 @@ const Header = () => {
             </Nav>
 
             <Nav>
-              <Button variant="primary" onClick={auth.logout}>
+              <Button
+                variant="linear(to-r, #008900, #70cb00)"
+                onClick={auth.logout}
+              >
                 Logout
               </Button>
             </Nav>

@@ -1,7 +1,5 @@
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
 
-// import { ExposureZeroTwoTone } from "@material-ui/icons";
-
 const Error = () => {
   return (
     <Box textAlign="center" py={10} px={6}>
@@ -9,7 +7,7 @@ const Error = () => {
         display="inline-block"
         as="h2"
         size="2xl"
-        bgGradient="linear(to-r, teal.400, teal.600)"
+        bgGradient="linear(to-r, #008900, #70cb00)"
         backgroundClip="text"
       >
         404
@@ -22,8 +20,8 @@ const Error = () => {
       </Text>
 
       <Button
-        colorScheme="teal"
-        bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
+        colorScheme="yellow"
+        bgGradient="linear(to-r, #008900, #70cb00)"
         color="white"
         variant="solid"
       >
