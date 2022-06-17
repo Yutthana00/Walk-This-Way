@@ -22,6 +22,7 @@ import PostForm from "./components/createPost";
 import Dashboard from "./pages/dashboard";
 import Footer from "./components/footer";
 import Error from "./pages/404";
+import UserProvider from "./utils/UserProvider";
 // import Footer from "./components/footer";
 
 const httpLink = createHttpLink({
@@ -51,21 +52,23 @@ function App() {
     <ApolloProvider client={client}>
       <ChakraProvider>
         <AuthProvider>
-          {/*Wrap all page elemets in Router Component to keep track of location state*/}
-          <Router>
-            {/* Routes Component can only have Route Components within it!! */}
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/login" element={<LoginForm />}></Route>
-              <Route path="/signup" element={<SignupForm />}></Route>
-              <Route path="/createPost" element={<PostForm />}></Route>
-              <Route path="/FAQ" element={<FAQ />}></Route>
-              <Route path="/dashboard" element={<Dashboard />}></Route>
-              <Route path="/404" element={<Error />}></Route>
-            </Routes>
-            <Footer />
-          </Router>
+          <UserProvider>
+            {/*Wrap all page elemets in Router Component to keep track of location state*/}
+            <Router>
+              {/* Routes Component can only have Route Components within it!! */}
+              <Header />
+              <Routes>
+                <Route path="/login" element={<LoginForm />}></Route>
+                <Route path="/signup" element={<SignupForm />}></Route>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/createPost" element={<PostForm />}></Route>
+                <Route path="/FAQ" element={<FAQ />}></Route>
+                <Route path="/dashboard" element={<Dashboard />}></Route>
+                <Route path="/404" element={<Error />}></Route>
+              </Routes>
+              <Footer />
+            </Router>
+          </UserProvider>
         </AuthProvider>
       </ChakraProvider>
     </ApolloProvider>

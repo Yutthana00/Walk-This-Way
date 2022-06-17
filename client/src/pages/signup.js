@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../utils/mutations";
 import { useAuthContext } from "../utils/AuthProvider";
+import { useUserContext } from "../utils/UserProvider";
 
 import { Link, useNavigate } from "react-router-dom";
-import auth from "../utils/AuthService";
+
 import "../signUp.css";
 
 const SignupForm = () => {
   const auth = useAuthContext();
+  const { setLoggedIn } = useUserContext();
   const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({
@@ -33,6 +35,7 @@ const SignupForm = () => {
         variables: { ...userFormData },
       });
       auth.login(data.signUp.token);
+      setLoggedIn(true);
       navigate("/");
     } catch (err) {
       console.error(err);

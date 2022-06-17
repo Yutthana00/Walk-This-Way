@@ -32,14 +32,16 @@ const UserSetting = ({ user }) => {
             objectFit={"cover"}
           />
           <Flex justify={"center"} mt={-12}>
-            <Avatar
-              size={"xl"}
-              src={user.profilePic}
-              alt={"Author"}
-              css={{
-                border: "2px solid white",
-              }}
-            />
+            {user?.profilePic && (
+              <Avatar
+                size={"xl"}
+                src={user?.profilePic}
+                alt={"Author"}
+                css={{
+                  border: "2px solid white",
+                }}
+              />
+            )}
           </Flex>
 
           {/* USERNAME DISPLAY */}

@@ -23,13 +23,10 @@ const Card = ({ post }) => {
         overflow={"hidden"}
       >
         <Stack direction={"row"} spacing={4} align={"center"}>
-          <Avatar
-            src={"https://avatars0.githubusercontent.com/u/1164541?v=4"}
-            alt={"Author"}
-          />
+          <Avatar src={post.author.profilePic} alt={"Author"} />
           <Stack direction={"column"} spacing={0} fontSize={"sm"}>
             <Text color={"gray.300"} fontWeight={600}>
-              {post.author}
+              {post.author.username}
             </Text>
             <Text color={"gray.500"}>Feb 08, 2021 </Text>
           </Stack>

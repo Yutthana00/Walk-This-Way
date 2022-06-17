@@ -22,10 +22,16 @@ const Home = () => {
       <br />
 
       <Link to={"/createPost"}>
-        <Flex padding={"20px"} justifyContent={"right"} position={"sticky"}>
+        <Flex
+          padding={"20px"}
+          justifyContent={"right"}
+          position={"fixed"}
+          right={"0"}
+          bottom={"0"}
+        >
           <Button
             /* flex={1} */
-            px={7}
+            px={6}
             h={"90px"}
             fontSize={"6xl"}
             rounded={"full"}
@@ -42,6 +48,7 @@ const Home = () => {
             _focus={{
               bg: "blue.500",
             }}
+            style={{ aspectRatio: 1 }}
           >
             +
           </Button>

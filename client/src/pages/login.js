@@ -4,13 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { LOGIN_USER } from "../utils/mutations";
 import { useAuthContext } from "../utils/AuthProvider";
+import { useUserContext } from "../utils/UserProvider";
 // import "../signUp.css";
-
-import "../components/image/beach.jpg";
 
 const LoginForm = () => {
   // Hooks need to be in a position where they can load in the same order everytime
   const auth = useAuthContext();
+  const { setLoggedIn } = useUserContext();
   const navigate = useNavigate();
 
   // initial useState.
@@ -38,6 +38,7 @@ const LoginForm = () => {
 
       // Login the user
       auth.login(data.loginUser.token);
+      setLoggedIn(true);
       // ...then navigate them to the homepage
       navigate("/");
     } catch (err) {
@@ -90,7 +91,7 @@ const LoginForm = () => {
       {/* Link will allow us to use interactive navigation to take the user to the signup page */}
       <div className="needAccount">
         <Link to={"/signup"}>
-          <button >Need an Account? Sign Up!</button>
+          <button>Need an Account? Sign Up!</button>
         </Link>
       </div>
     </>

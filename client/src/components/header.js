@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // import { Link } from 'react-router-dom';
 // import { Navbar, Nav, Container, Button, NavLink } from "react-bootstrap";
-import { ReactNode } from "react";
+
 import {
   Box,
   Flex,
@@ -25,9 +25,11 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 import { useAuthContext } from "../utils/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../utils/UserProvider";
 
 const Header = () => {
   const auth = useAuthContext();
+  const { user } = useUserContext();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,29 +38,13 @@ const Header = () => {
     }
   }, []);
 
-  const NavLink = ({ children }: { children: ReactNode }) => (
-    <Link
-      px={2}
-      py={1}
-      rounded={"md"}
-      _hover={{
-        textDecoration: "none",
-        bg: useColorModeValue("gray.200", "gray.700"),
-      }}
-      href={"#"}
-    >
-      {children}
-    </Link>
-  );
-
   const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <Box bg={useColorModeValue("light", "#161717")} px={4}>
         <Flex h={"80px"} alignItems={"center"} justifyContent={"space-between"}>
           {/*Navbar Logo */}
-          <Image src={"logo.png"} h="50px" alt=" navbar company logo" />
+          <Image src={"image/logo.png"} h="50px" alt=" navbar company logo" />
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
@@ -86,7 +72,9 @@ const Header = () => {
                   minW={0}
                 >
                   {/* Navbar visible avatar */}
-                  <Avatar size={"md"} src={""} />
+                  {user?.profilePic && (
+                    <Avatar size={"md"} src={user?.profilePic} />
+                  )}
                 </MenuButton>
 
                 <MenuList alignItems={"center"}>

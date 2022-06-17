@@ -3,14 +3,16 @@ import { Heading } from "@chakra-ui/react";
 import GetUserPosts from "../components/singleUserPosts";
 import UserSetting from "../components/userSetting";
 import ProfilePic from "../components/profilePic";
-import { useQuery } from "@apollo/client";
-import { GET_ME } from "../utils/queries";
+
+import { useUserContext } from "../utils/UserProvider";
 // This page displays the User's Settings, Post's & Private information
 const Dashboard = () => {
   const [isProfilePicVisible, setIsProfilePicVisible] = useState(false);
-  const { loading, data, refetch } = useQuery(GET_ME);
 
-  const user = data?.me || {};
+  const { user, loading, refetchUser } = useUserContext();
+  if (!user) {
+    return <div> loading... </div>;
+  }
 
   if (loading) return <div>Loading...</div>;
 
@@ -42,7 +44,7 @@ const Dashboard = () => {
       {isProfilePicVisible && (
         <ProfilePic
           setIsProfilePicVisible={setIsProfilePicVisible}
-          refetchUsers={refetch}
+          refetchUsers={refetchUser}
         />
       )}
 
