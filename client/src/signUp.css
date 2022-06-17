@@ -119,3 +119,13 @@ form .form-inner .form-btn:hover,
 .welcome h2 span {
   color: rgb(248, 208, 77);
 }
+
+.needAccount {
+color: gray;
+padding: 20px;
+margin: auto;
+width: 50%;
+text-align: center;
+
+
+}
