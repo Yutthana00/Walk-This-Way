@@ -17,7 +17,6 @@ import Header from "./components/header";
 import Home from "./pages/home";
 import LoginForm from "./pages/login";
 import SignupForm from "./pages/signup";
-import Card from "./components/card";
 import FAQ from "./pages/FAQ";
 import PostForm from "./components/createPost";
 import Dashboard from "./pages/dashboard";
@@ -63,7 +62,6 @@ function App() {
               <Route path="/createPost" element={<PostForm />}></Route>
               <Route path="/FAQ" element={<FAQ />}></Route>
               <Route path="/dashboard" element={<Dashboard />}></Route>
-              <Route path="/card" element={<Card />}></Route>
               <Route path="/404" element={<Error />}></Route>
             </Routes>
             <Footer />
