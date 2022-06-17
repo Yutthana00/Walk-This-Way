@@ -20,11 +20,6 @@ const Home = () => {
     <div>
 
       <GetPosts />
-
-      <Link to={"/dashboard"}>
-      <button>Go To Your Dashboard</button>
-    </Link>
-
       <br />
 
       <Link to={"/createPost"}>
