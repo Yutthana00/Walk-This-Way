@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PROFILE_PIC } from "../utils/mutations";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
+// image is converted to a string
 const convertImageToBase64 = (file) => {
   return new Promise((resolve, reject) => {
     // create new file reader for image
@@ -29,12 +30,14 @@ const ProfilePic = ({ setIsProfilePicVisible, refetchUsers }) => {
 
   if (error) console.log(error);
 
+  //upload file and convert to base64 - this is then uploaded to Cloudinary by the back end
   const handleInputChange = async (event) => {
     const { name } = event.target;
     if (name === "image") {
       const base64Image = await convertImageToBase64(event.target.files[0]);
 
       const imageDataObject = {
+        //show preview of photo to be uploaded
         preview: URL.createObjectURL(event.target.files[0]),
         data: base64Image,
       };
@@ -46,6 +49,7 @@ const ProfilePic = ({ setIsProfilePicVisible, refetchUsers }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
+      // user is updated by adding profile picture
       await addProfilePic({
         variables: { profilePic: userFormData?.image?.data || "" },
       });

@@ -16,7 +16,8 @@ const UserSchema = new Schema(
 
     profilePic: {
       type: String,
-      defaultValue: "../../client/src/components/image/user-profile.png",
+      defaultValue:
+        "https://previews.dropbox.com/p/thumb/ABmSuWYtu_ScZ24dHGESOF1kNrOyTyAMN3fulp8hjBRAte4MzUzkgQUCpjTP8DKCVshhwhZLzgVacswcCK5dOSABzDAdxBx-1AFi4BZEjkxVb5-1iC_BnpEWtBCwHEaXlL9_FHdt97PM8KNNNyuAX-s1tTr26bWiESTXgAzqn4_CzgDeCQPYUqwgWBHxQsnuxtvI74saBjSWfpT36OREvPFG94EGulPAXVYypP1ceg9LHo-q3udz9fpiT8p5xBgNS7etCeLzPuba2hgvcPIXw8VUw8L92andZkuQbWb7gJaH6AtkOO19FneyQo6CXoc3-_GvHUyNMzRAeFCXDzgMoZnteeGiezGBTZLAhEOnvReTRNpc3Y9EuTOsq79BTjBwkSQ/p.png",
     },
 
     posts: [

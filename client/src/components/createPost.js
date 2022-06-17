@@ -5,6 +5,7 @@ import { useAuthContext } from "../utils/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 //import auth from "../utils/auth";
 
+// image is converted to a string
 const convertImageToBase64 = (file) => {
   return new Promise((resolve, reject) => {
     // create new file reader for image
@@ -36,6 +37,7 @@ const PostForm = () => {
 
   const auth = useAuthContext();
   const navigate = useNavigate();
+
   const [userFormData, setUserFormData] = useState(INITIAL_FORM_STATE);
   const [error, setError] = useState("");
 
@@ -47,6 +49,7 @@ const PostForm = () => {
     const { name, value } = event.target;
 
     if (name === "image") {
+      //upload file and convert to base64 - this is then uploaded to Cloudinary by the back end
       const base64Image = await convertImageToBase64(event.target.files[0]);
 
       const imageDataObject = {
@@ -65,8 +68,10 @@ const PostForm = () => {
     event.preventDefault();
 
     try {
+      //converts distance input from string to integer to bring in line with what database is expecting
       const parsedDistance = parseInt(userFormData.distance);
 
+      //set error if something other than a number is entered into distance field
       if (!parsedDistance || isNaN(parsedDistance)) {
         setError("Distance must be a number!");
         return;
@@ -74,6 +79,7 @@ const PostForm = () => {
 
       const dataToSubmit = {
         ...userFormData,
+        //get username of the person creating the post by accessing username from auth.getProfile()
         author: auth.getProfile().data.username,
         distance: parsedDistance,
         image: userFormData?.image?.data || "",
@@ -91,6 +97,7 @@ const PostForm = () => {
     } catch (error) {
       console.error(error);
 
+      //error if image size is too large
       if (error.message === "Image size is too big") {
         setError("The image you uploaded is too big, try again");
       }

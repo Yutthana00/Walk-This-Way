@@ -30,6 +30,10 @@ const typeDefs = gql`
     author: String
   }
 
+  type DeleteUser {
+    success: Boolean!
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -47,7 +51,7 @@ const typeDefs = gql`
     addProfilePic(profilePic: String): User
     createPost(postData: PostInput!): Post
     deletePost(_id: ID!): User
-    deleteUser: User
+    deleteUser(userId: ID): DeleteUser
   }
 `;
 
