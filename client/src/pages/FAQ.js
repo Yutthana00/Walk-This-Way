@@ -100,8 +100,7 @@ const FAQ = () => {
                     <AboutUsContent>
                         <AboutUsHeading>Why Walk-this-Way was created? </AboutUsHeading>
                             <AboutUsText>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-                                neque sed imperdiet nibh lectus feugiat nunc sem.
+                            Dedicated place for users to post travel location with enough information for others to be able sort out and visit.
                             </AboutUsText>
                     </AboutUsContent>
                 </AboutUs>
@@ -111,8 +110,7 @@ const FAQ = () => {
                     <AboutUsHeading>Do I need an account?</AboutUsHeading>
 
                         <AboutUsText>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-                            neque sed imperdiet nibh lectus feugiat nunc sem.
+                            Yes, an account is needed to view and post your own trips. Go on the main page and follow the steps.
                         </AboutUsText>
                 </AboutUsContent>
                 </AboutUs>
@@ -122,7 +120,7 @@ const FAQ = () => {
                     <AboutUsHeading>How to use Walk-This-Way?</AboutUsHeading>
 
                         <AboutUsText>
-                            Simply create an account to view or post on our timeline.
+                            Simply create an account to view or post on our timeline, it is quick and simple to get started. 
                         </AboutUsText>
                 </AboutUsContent>
                 </AboutUs>
