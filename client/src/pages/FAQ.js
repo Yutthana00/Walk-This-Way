@@ -1,221 +1,145 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import {
   Box,
+  Flex,
   Heading,
-  Link,
-  Image,
   Text,
+  Stack,
+  Container,
+  Avatar,
   useColorModeValue,
-  Container
 } from '@chakra-ui/react';
 
-const FAQ = () => {
+const AboutUs = ({ children }) => {
+    return <Box>{children}</Box>;
+  };
   
+const AboutUsBox = ({ children }) => {
+  return <Box>{children}</Box>;
+};
+const AboutUsContent = ({ children }) => {
     return (
-      <Container maxW={'8xl'} p="12" >
-        <Heading padding={'10px'}>FAQ</Heading>
-        <Box
-          marginTop={{ base: '1', sm: '5' }}
-          display="flex"
-          flexDirection={{ base: 'column', sm: 'row' }}
-          justifyContent="space-between">
-          <Box
-            display="flex"
-            flex="1"
-            marginRight="3"
-            position="relative"
-            alignItems="center">
-            <Box
-              width={{ base: '100%', sm: '85%' }}
-              zIndex="2"
-              marginLeft={{ base: '0', sm: '5%' }}
-              marginTop="5%">
-              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
-                <Image
-                  borderRadius="lg"
-                  src={
-                    'https://via.placeholder.com/300/09f.png/fff'
-                  }
-                  alt="some good alt text"
-                  objectFit="contain"
-                />
-              </Link>
-            </Box>
-            <Box zIndex="1" width="100%" position="absolute" height="100%">
-              <Box
-                bgGradient={useColorModeValue(
-                  'radial(orange.600 1px, transparent 1px)',
-                  'radial(orange.300 1px, transparent 1px)'
-                )}
-                backgroundSize="20px 20px"
-                opacity="0.4"
-                height="100%"
-              />
-            </Box>
-          </Box>
-          <Box
-            display="flex"
-            flex="1"
-            flexDirection="column"
-            justifyContent="center"
-            marginTop={{ base: '3', sm: '0' }}>
-            <Heading marginTop="1">
-              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
-                QUESTION
-              </Link>
-            </Heading>
-            <Text
-              as="p"
-              marginTop="2"
-              color={useColorModeValue('gray.700', 'gray.200')}
-              fontSize="lg">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book.
-            </Text>
-          </Box>
-        </Box>
+      <Stack
+        bg={useColorModeValue('white', 'gray.800')}
+        boxShadow={'lg'}
+        p={8}
+        rounded={'xl'}
+        align={'center'}
+        pos={'relative'}
+        _after={{
+          content: `""`,
+          w: 0,
+          h: 0,
+          borderLeft: 'solid transparent',
+          borderLeftWidth: 16,
+          borderRight: 'solid transparent',
+          borderRightWidth: 16,
+          borderTop: 'solid',
+          borderTopWidth: 16,
+          borderTopColor: useColorModeValue('white', 'gray.800'),
+          pos: 'absolute',
+          bottom: '-16px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+        }}>
+        {children}
+      </Stack>
+    );
+  };
 
-
-        <Heading padding={'10px'}>FAQ</Heading>
-        <Box
-          marginTop={{ base: '1', sm: '5' }}
-          display="flex"
-          flexDirection={{ base: 'column', sm: 'row' }}
-          justifyContent="space-between">
-          <Box
-            display="flex"
-            flex="1"
-            marginRight="3"
-            position="relative"
-            alignItems="center">
-{/* FAQ img */}
-            <Box
-              width={{ base: '100%', sm: '85%' }}
-              zIndex="2"
-              marginLeft={{ base: '0', sm: '5%' }}
-              marginTop="5%">
-              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
-                <Image
-                  borderRadius="lg"
-                  src={
-                    'https://via.placeholder.com/300/09f.png/fff'
-                  }
-                  alt="some good alt text"
-                  objectFit="contain"
-                />
-              </Link>
-            </Box>
-
-            <Box zIndex="1" width="100%" position="absolute" height="100%">
-              <Box
-                bgGradient={useColorModeValue(
-                  'radial(orange.600 1px, transparent 1px)',
-                  'radial(orange.300 1px, transparent 1px)'
-                )}
-                backgroundSize="20px 20px"
-                opacity="0.4"
-                height="100%"
-              />
-            </Box>
-          </Box>
-          <Box
-            display="flex"
-            flex="1"
-            flexDirection="column"
-            justifyContent="center"
-            marginTop={{ base: '3', sm: '0' }}>
-            <Heading marginTop="1">
-              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
-                QUESTION
-              </Link>
-            </Heading>
-            <Text
-              as="p"
-              marginTop="2"
-              color={useColorModeValue('gray.700', 'gray.200')}
-              fontSize="lg">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book.
-            </Text>
-          </Box>
-        </Box>
-
-
-        <Heading padding={'10px'}>FAQ</Heading>
-        <Box
-          marginTop={{ base: '1', sm: '5' }}
-          display="flex"
-          flexDirection={{ base: 'column', sm: 'row' }}
-          justifyContent="space-between">
-          <Box
-            display="flex"
-            flex="1"
-            marginRight="3"
-            position="relative"
-            alignItems="center">
-            <Box
-              width={{ base: '100%', sm: '85%' }}
-              zIndex="2"
-              marginLeft={{ base: '0', sm: '5%' }}
-              marginTop="5%">
-              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
-                <Image
-                  borderRadius="lg"
-                  src={
-                    'https://via.placeholder.com/300/09f.png/fff'
-                  }
-                  alt="some good alt text"
-                  objectFit="contain"
-                />
-              </Link>
-            </Box>
-            <Box zIndex="1" width="100%" position="absolute" height="100%">
-              <Box
-                bgGradient={useColorModeValue(
-                  'radial(orange.600 1px, transparent 1px)',
-                  'radial(orange.300 1px, transparent 1px)'
-                )}
-                backgroundSize="20px 20px"
-                opacity="0.4"
-                height="100%"
-              />
-            </Box>
-          </Box>
-          
-          <Box
-            display="flex"
-            flex="1"
-            flexDirection="column"
-            justifyContent="center"
-            marginTop={{ base: '3', sm: '0' }}>
-            <Heading marginTop="1">
-              <Link textDecoration="none" _hover={{ textDecoration: 'none' }}>
-                QUESTION
-              </Link>
-            </Heading>
-            <Text
-              as="p"
-              marginTop="2"
-              color={useColorModeValue('gray.700', 'gray.200')}
-              fontSize="lg">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book.
-            </Text>
-          </Box>
-        </Box>
-        
-      </Container>
-
-      
-
-      
-  );    
+const AboutUsText = ({ children }) => {
+return (
+    <Text
+    textAlign={'center'}
+    color={useColorModeValue('gray.600', 'gray.400')}
+    fontSize={'lg'}>
+    {children}
+    </Text>
+);
 };
 
+const AboutUsHeading = ({ children }) => {
+    return (
+      <Heading as={'h3'} fontSize={'xl'}>
+        {children}
+      </Heading>
+    );
+  };
+
+const AboutUsAvatar = ({
+  src,
+  name,
+  title,
+}
+) => {
+  return (
+    <Flex align={'center'} direction={'column'}>
+      <Avatar size={'2xl'} src={src} alt={name} mb={5} />
+      <Stack spacing={0} align={'center'}>
+        <Text fontWeight={600}>{name}</Text>
+        <Text fontSize={'sm'} color={useColorModeValue('gray.600', 'gray.400')}>
+          {title}
+        </Text>
+      </Stack>
+    </Flex>
+  );
+};
+
+const FAQ = () => {
+    return (
+
+<Box bg={useColorModeValue('gray.100', 'gray.700')}>
+    <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
+        <Stack spacing={0} align={'center'}>
+            <Heading padding={'20px'}>Frequently Asked Questions</Heading>
+            <Text></Text>
+        </Stack>
+            <Stack direction={{ base: 'column', md: 'column' }}
+            spacing={{ base: 10, md: 4, lg: 20 }}>
+                <AboutUs>
+                    <AboutUsContent>
+                        <AboutUsHeading>Why Walk-this-Way was created? </AboutUsHeading>
+                            <AboutUsText>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
+                                neque sed imperdiet nibh lectus feugiat nunc sem.
+                            </AboutUsText>
+                    </AboutUsContent>
+                </AboutUs>
+
+                <AboutUs>
+                <AboutUsContent>
+                    <AboutUsHeading>Do I need an account?</AboutUsHeading>
+
+                        <AboutUsText>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
+                            neque sed imperdiet nibh lectus feugiat nunc sem.
+                        </AboutUsText>
+                </AboutUsContent>
+                </AboutUs>
+
+                <AboutUs>
+                <AboutUsContent>
+                    <AboutUsHeading>How to use Walk-This-Way?</AboutUsHeading>
+
+                        <AboutUsText>
+                            Simply create an account to view or post on our timeline.
+                        </AboutUsText>
+                </AboutUsContent>
+                </AboutUs>
+
+                <AboutUs>
+                <AboutUsContent>
+                    <AboutUsHeading>Having Trouble?</AboutUsHeading>
+                        <AboutUsText>
+                            Please report any issues on our website with contact information in the footer and we will see to the issues as soon as possible.
+                        </AboutUsText>
+                    </AboutUsContent>
+                    </AboutUs>
+        </Stack>
+    </Container>
+</Box>   
+
+    );
+};
 export default FAQ;
+ 
