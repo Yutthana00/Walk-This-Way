@@ -59,4 +59,4 @@ Please reach out to a member of the team with any questions you may have:
 - [Yasmin A](https://github.com/yasmin-io)
 - [Emily Mckibben](https://github.com/empipio)
 
-The deployed application is available here: https://hidden-anchorage-50019.herokuapp.com/
+The deployed application is available here: https://murmuring-fjord-50502.herokuapp.com/
