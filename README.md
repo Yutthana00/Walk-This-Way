@@ -8,7 +8,9 @@ Walk This Way is a social media-come-walking routes hub that aims to link those 
 
 Users can browse posts to find inspiration for their next adventure, or post their own hikes to celebrate and spur others on.
 
-![screenshot here]()
+![screenshot of post on home page with app in light mode](client/public/image/screenshot-homepage.png)
+
+![screenshot of user profile on dashboard with app in dark mode](client/public/image/screenshot-dashboard.png)
 
 ## Contributors
 
