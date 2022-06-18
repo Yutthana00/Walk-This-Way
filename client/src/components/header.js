@@ -88,28 +88,6 @@ const Header = () => {
                 </MenuButton>
 
                 <MenuList alignItems={"center"}>
-                  <br />
-                  <Center>
-                    <Avatar size={"2xl"} src={""} />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-
-                  <MenuDivider />
-                  <Stack spacing={0} align={"center"}>
-                    {/* Followers */}
-                    <Text fontWeight={600}>23k</Text>
-                    <Text fontSize={"sm"} color={"gray.500"}>
-                      Followers{" "}
-                    </Text>
-
-                    <Text cursor={"pointer"} padding={"15px"}>
-                      Profile
-                    </Text>
-                  </Stack>
                   {/*Logout Button */}
                   {/*<MenuItem>Logout</MenuItem>*/}
                   <Center padding={"10px"}>
