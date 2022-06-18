@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { SINGLE_USER_POSTS } from "../utils/queries";
+import Card from "./card";
 
 const GetUserPosts = () => {
   const { loading, data } = useQuery(SINGLE_USER_POSTS);
@@ -16,21 +17,7 @@ const GetUserPosts = () => {
       ) : (
         <div>
           {posts?.length &&
-            posts
-              .map((post) => (
-                <div key={post._id}>
-                  <div>Location: {post.location}</div>
-                  <img
-                    alt="here's what you've posted!"
-                    src={post.image}
-                    style={{ height: 150, width: 150 }}
-                  />
-                  <div>Distance: {post.distance}</div>
-                  <div>Description: {post.description}</div>
-                  <div>URL: {post.website}</div>
-                </div>
-              ))
-              .reverse()}
+            posts.map((post) => <Card post={post} key={post._id} />).reverse()}
         </div>
       )}
     </div>

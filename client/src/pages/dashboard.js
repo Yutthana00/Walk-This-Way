@@ -47,7 +47,6 @@ const Dashboard = () => {
         Add/Change Profile Picture
       </button>
 
-      <h2> Previous Posts:</h2>
       <GetUserPosts />
 
       {isProfilePicVisible && (
