@@ -2,7 +2,6 @@ import { Image } from "@chakra-ui/image";
 import {
   Box,
   Center,
-  Heading,
   Text,
   Stack,
   Avatar,
@@ -16,7 +15,7 @@ const Card = ({ post }) => {
         maxW={"500px"}
         w={"full"}
         // eslint-disable-next-line react-hooks/rules-of-hooks
-        bg={useColorModeValue("light", "#161717")}
+        bg={useColorModeValue("gray.100", "#161717")}
         boxShadow={"2xl"}
         rounded={"md"}
         p={6}
@@ -27,10 +26,10 @@ const Card = ({ post }) => {
             <Avatar src={post?.author?.profilePic} alt={"Author"} />
           )}
           <Stack direction={"column"} spacing={0} fontSize={"sm"}>
-            <Text color={"gray.300"} fontWeight={600}>
+            <Text color={"gray.600"} fontWeight={600}>
               {post.author.username}
             </Text>
-            <Text color={"gray.500"}>Feb 08, 2021 </Text>
+            <Text color={"gray.500"}>{post.website}</Text>
           </Stack>
         </Stack>
 
@@ -42,8 +41,8 @@ const Card = ({ post }) => {
           <Box color={"gray.300"} mb={1}>
             <Text
               padding={"5px"}
-              color={"green.500"}
-              fontWeight={800}
+              color={"#70cb00"}
+              fontWeight={700}
               fontSize={"md"}
               letterSpacing={1.1}
             >
@@ -51,11 +50,10 @@ const Card = ({ post }) => {
             </Text>
 
             <Text color={"gray.500"} h={"8"}>
-              {" "}
-              websirte: {post.website}
+              {post.author.username}
             </Text>
 
-            <Text color={"gray.300"} fontSize={"15px"}>
+            <Text color={"gray.600"} fontSize={"15px"}>
               {post.description}
             </Text>
           </Box>
@@ -66,18 +64,3 @@ const Card = ({ post }) => {
 };
 
 export default Card;
-
-// eslint-disable-next-line react-hooks/rules-of-hooks
-// color={useColorModeValue("gray.700", "white")}
-// fontSize={"2xl"}
-// fontFamily={"body"}
-
-// <Text
-// color={"gray.400"}
-// textTransform={"uppercase"}
-// fontWeight={800}
-// fontSize={"sm"}
-// letterSpacing={1.1}
-// >
-// Blog
-// </Text>
