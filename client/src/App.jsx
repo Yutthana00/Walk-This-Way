@@ -17,6 +17,7 @@ import Header from "./components/header";
 import Home from "./pages/home";
 import LoginForm from "./pages/login";
 import SignupForm from "./pages/signup";
+import AboutUs from "./pages/aboutUs";
 import FAQ from "./pages/FAQ";
 import PostForm from "./components/createPost";
 import Dashboard from "./pages/dashboard";
@@ -62,6 +63,7 @@ function App() {
                 <Route path="/signup" element={<SignupForm />}></Route>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/createPost" element={<PostForm />}></Route>
+                <Route path="/AboutUs" element={<AboutUs />}></Route>
                 <Route path="/FAQ" element={<FAQ />}></Route>
                 <Route path="/dashboard" element={<Dashboard />}></Route>
                 <Route path="/404" element={<Error />}></Route>
