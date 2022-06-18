@@ -47,6 +47,7 @@ const Header = () => {
   }, [location?.pathname, loggedIn, navigate]);
 
   const { colorMode, toggleColorMode } = useColorMode();
+  
   return (
     <>
       <Box bg={useColorModeValue("light", "#161717")} px={4}>
@@ -60,9 +61,15 @@ const Header = () => {
                 <Button as="a" href="/">
                   Home
                 </Button>
+                
                 <Button as="a" href="/dashboard">
                   Dashboard
                 </Button>
+
+                <Button as="a" href="/aboutUs">
+                  About Us
+                </Button>
+
                 <Button as="a" href="/FAQ">
                   FAQ
                 </Button>
