@@ -43,7 +43,7 @@ const AboutUs = () => {
             <Container maxW={'md'} py={16} as={Stack} spacing={12}>
             <Stack spacing={10} align={'center'}>
                 <Heading>Meet Our Team!</Heading>
-                <Text>-  Who are we and why we built this - </Text>
+                <Text>-  Who are we and why we built this "Walk This Way"- </Text>
             </Stack>
             
             <Stack
@@ -52,9 +52,7 @@ const AboutUs = () => {
                 
                 <AboutUsBox>
                 <AboutUsAvatar
-                    src={
-                    ''
-                    }
+                    src={'image/yutthana.jpg'}
                     name={'Yutthana T'}
                     title={'Founder & CEO'}
                 />
@@ -64,7 +62,7 @@ const AboutUs = () => {
 
                 <AboutUsAvatar
                     src={
-                    ''
+                    'image/Yasmin.png'
                     }
                     name={'Yasmin A'}
                     title={'Founder & CEO'}
@@ -75,7 +73,7 @@ const AboutUs = () => {
                 
                 <AboutUsAvatar
                     src={
-                    ''
+                    'image/Em.jpeg'
                     }
                     name={'Emily'}
                     title={'Founder & CEO'}
