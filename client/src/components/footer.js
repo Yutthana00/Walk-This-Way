@@ -6,13 +6,17 @@ const Footer = () => {
     <div class="footer">
         <div class="container">
             <div class="row">
+        
+                   
+
                 <div class="col-md-4 col-xs-12">
-                    <div class="first">
-                        <h4>GitHub</h4>
-                        <p> Emily</p>
-                        <p> Yasmin</p>
-                        <p> Yutthana00</p>
-                        
+                    <div class="second">
+                        <h4> GitHub</h4>
+                        <ul>
+                            <li><a href="https://github.com/empipio">Emily - Empipio</a></li>
+                            <li><a href="https://github.com/yasmin-io">Yasmin - Yasmin-io</a></li>
+                            <li><a href="https://github.com/Yutthana00">Yutthana - Yutthana00</a></li>
+                        </ul>
                     </div>
                 </div>
 
@@ -20,42 +24,25 @@ const Footer = () => {
                     <div class="second">
                         <h4> LinkedIn</h4>
                         <ul>
-                            <li><a href="#">Emily</a></li>
-                            <li><a href="#">Yasmin</a></li>
-                            <li><a href="#">Yutthana00</a></li>
-                            
+                            <li><a href="#">Emily Mckibben</a></li>
+                            <li><a href="https://www.linkedin.com/in/yasmin-a-5ba6b8226/">Yasmin A.</a></li>
+                            <li><a href="https://www.linkedin.com/in/yutthana-thapdit/">Yutthana Thapdit</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-xs-12">
-                    <div class="third">
-                        <h4> Contact</h4>
+                    <div class="second">
+                        <h4> Contact </h4>
                         <ul>
-                            <li><i class="far fa-envelope"></i> Emily@gmail.com </li>
-                            <li><i class="far fa-envelope"></i> Yasmin@gmail.com </li>
-                            <li><i class="far fa-envelope"></i> Yutthana@gmail.com </li>
-                          <li><i class="fas fa-map-marker-alt"></i> United Kingdom </li>
+                            <li><a href="#">Emckibben@hotmail.co.uk</a></li>
+                            <li><a href="#">Yasmin.bunnie@gmail.com</a></li>
+                            <li><a href="#">Arf101293@gmail.com </a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="line"></div>
-                    <div class="second2">
-                        <a href="#" target="_blank"> <i class="fab fa-codepen fa-2x margin"></i></a>
-                        <a href="#" target="_blank"> <i class="fab fa-github fa-2x margin"></i></a>
-                        <a href="#" target="_blank"> <i class="fab fa-linkedin fa-2x margin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-youtube fa-2x margin" ></i></a>
-
-                    </div>
-
-                </div>
-            </div>
-            </div>
     </div>
   );
 };
