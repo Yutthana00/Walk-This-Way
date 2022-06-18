@@ -7,11 +7,10 @@ const GetUserPosts = () => {
   const { loading, data } = useQuery(SINGLE_USER_POSTS);
   const posts = data?.singleUserPosts || [];
   if (!posts.length) {
-    return <h3>You have not created a post yet! Why not create one here</h3>;
+    return <h3>You have not created a post yet!</h3>;
   }
   return (
     <div>
-      {" "}
       {loading ? (
         <div>Loading...</div>
       ) : (

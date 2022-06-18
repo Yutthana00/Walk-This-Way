@@ -59,7 +59,7 @@ const LoginForm = () => {
           <h2>Login</h2>
 
           <div className="form-group">
-            <label htmlFor="name">UserName</label>
+            <label htmlFor="name">Username</label>
             <input
               name="username"
               value={userFormData.username}
@@ -82,11 +82,6 @@ const LoginForm = () => {
             Login!
           </button>
         </div>
-        {/*If button is clicked, it takes me to the signup page */}
-        {/* <button className="form-btn" onClick={noAccount}>
-        No Account?
-      </button> */}
-        button
       </form>
       {/* Link will allow us to use interactive navigation to take the user to the signup page */}
       <div className="needAccount">
