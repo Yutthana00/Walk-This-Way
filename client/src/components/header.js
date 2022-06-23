@@ -24,7 +24,7 @@ import { useUserContext } from "../utils/UserProvider";
 
 const Header = () => {
   const auth = useAuthContext();
-  const { user, loggedIn } = useUserContext();
+  const { user, loggedIn, setLoggedIn } = useUserContext();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -87,20 +87,17 @@ const Header = () => {
                   )}
                 </MenuButton>
 
-                <MenuList alignItems={"center"}>
-                  {/*Logout Button */}
-                  {/*<MenuItem>Logout</MenuItem>*/}
-                  <Center padding={"10px"}>
-                    <button
-                      justifyContent={"center"}
-                      onClick={() => {
-                        auth.logout();
-                      }}
-                    >
-                      Logout{" "}
-                    </button>
-                  </Center>
-                </MenuList>
+                {loggedIn && (
+                  <MenuButton
+                    onClick={() => {
+                      auth.logout();
+                      setLoggedIn(false);
+                      navigate("/login");
+                    }}
+                  >
+                    Logout
+                  </MenuButton>
+                )}
               </Menu>
             </Stack>
           </Flex>
