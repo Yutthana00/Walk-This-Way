@@ -140,8 +140,11 @@ const resolvers = {
     //delete user
     deleteUser: async (parent, args, context) => {
       if (context.user) {
-        await User.findOneAndDelete({ _id: context.user._id });
+        //delete all user's posts
+        await Post.deleteMany({ author: context.user._id });
         //find user that is logged in and delete their account
+        await User.findOneAndDelete({ _id: context.user._id });
+
         return { success: true };
       }
       if (error) {
